@@ -1,0 +1,46 @@
+{
+  "source_repository": "https://github.com/QwenLM/Qwen3-Coder",
+  "source_revision": "33bc6aabd7791ad7b32f7e92104f11f2359ba890",
+  "source_directory": "qwencoder-eval/base/benchmarks/ExecRepoBench",
+  "imported_at": "2026-11-03T11:32:38.611860+03:00",
+  "baseline": "The nine upstream files below are byte-identical and unmodified. Existing repository LICENSE is retained. No benchmark fixes or execution performed.",
+  "dataset": "Not vendored here; pinned public JSONL and repos.zip remain in the parent collaboration data directory.",
+  "files": {
+    "create_environment.sh": {
+      "bytes": 277,
+      "sha256": "2abf288a7455e347e3f46f63ec9c3b576796e950408344ab25d1ad8ec7b3b977"
+    },
+    "create_test_repo.py": {
+      "bytes": 19938,
+      "sha256": "937bc6bfe5f53dc3e89509df5f5b716fb81a31dae788a5950ea0dbaf245d35dc"
+    },
+    "eval.py": {
+      "bytes": 17015,
+      "sha256": "da58ee993e8c1518835fc9bb7012d67a572fd81c19b004354a7fb30d83e85800"
+    },
+    "eval.sh": {
+      "bytes": 1097,
+      "sha256": "a9d03c25731952a6585d1f653e1d0e2ccbcb1f4ca23dddb43b92537caa7a34a1"
+    },
+    "eval_models.sh": {
+      "bytes": 414,
+      "sha256": "18db972ddf494f76aa52a50f058a0f700f48a9806f48e3cb2bd185d4aa846e4f"
+    },
+    "README.md": {
+      "bytes": 2098,
+      "sha256": "774645df1f65c36f0345ccb9c4478d960599d277ac93310cc493577ee59da3dd"
+    },
+    "test_repo_correctness.sh": {
+      "bytes": 335,
+      "sha256": "bd7ee44044c4a72bc1b6b26951d9f560c1aec7696bdf6c830c9986fe937cef22"
+    },
+    "utils/prompt_template.py": {
+      "bytes": 761,
+      "sha256": "e48702009a2621c06ffb49351dd1932f5e72823d980b3c9ab14e531d9162e85f"
+    },
+    "utils/utils.py": {
+      "bytes": 25550,
+      "sha256": "23e2fda6c23eb1fd712a3b758d3ef08a5af016c4345cc5dd9659f81bdbb181ac"
+    }
+  }
+}
