@@ -174,7 +174,10 @@ bash scripts/evaluate_local.sh --python python3 --data data/exec_repo_bench.json
 ```
 
 Выход: `evaluation/<control>/summary.json`, `manifest.json`, `results.jsonl`,
-`tasks/<id>/stdout.txt` и `stderr.txt`. Перед полным model score требуются
+`tasks/<id>/stdout.txt`, `stderr.txt` и `result.json`. Результат каждой задачи
+сохраняется до агрегации; промежуточная сводка обновляется раз в десять результатов.
+Кратковременные Windows-блокировки атомарной перезаписи повторяются; блокировка
+живой сводки не прерывает сохранение основного JSONL. Перед полным model score требуются
 **1164/1164 pass в gold**. Непрошедший gold требует диагностики среды, не
 исключения задач. Доля успеха empty публикуется как чувствительность тестов;
 задачи с успешным empty автоматически не исключаются.

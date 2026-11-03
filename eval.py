@@ -131,21 +131,36 @@ def main():
                 result = evaluate_task(task, middle, images[task["repo_name"]], limits, directory)
             result.update(dataset_sha256=DATA_SHA, es=edit_similarity(task["middle_code"], middle),
                           evaluation_fingerprint=run["fingerprint"])
+            write_json(directory / "result.json", result)
             return result
 
         with (args.output_dir / "results.jsonl").open("x", encoding="utf-8", newline="\n") as out:
             with ThreadPoolExecutor(max_workers=args.workers) as pool:
                 futures = [pool.submit(one, t) for t in tasks]
-                for future in as_completed(futures):
-                    result = future.result()
-                    append_jsonl(out, result)
-                    results.append(result)
-                    partial = summarize(results, tasks)
-                    partial.update(evaluation_config=config, evaluation_fingerprint=run["fingerprint"],
-                                   updated_at=now(), results_sha256=sha256(args.output_dir / "results.jsonl"))
-                    write_json(args.output_dir / "summary.json", partial)
-                    print(f"{len(results)}/{len(tasks)} task {result['task_id']}: {result['status']}", flush=True)
+                try:
+                    for future in as_completed(futures):
+                        result = future.result()
+                        append_jsonl(out, result)
+                        results.append(result)
+                        if len(results) == 1 or len(results) % 10 == 0:
+                            partial = summarize(results, tasks)
+                            partial.update(evaluation_config=config, evaluation_fingerprint=run["fingerprint"],
+                                           updated_at=now(), results_sha256=sha256(args.output_dir / "results.jsonl"))
+                            try:
+                                write_json(args.output_dir / "summary.json", partial)
+                            except PermissionError:
+                                # The canonical JSONL and per-task result are durable.
+                                # A derived live summary may be retried on the next batch.
+                                print("WARNING: live summary is locked; primary results saved", file=sys.stderr)
+                        print(f"{len(results)}/{len(tasks)} task {result['task_id']}: {result['status']}", flush=True)
+                except BaseException:
+                    for future in futures:
+                        future.cancel()
+                    raise
         summary = summarize(results, tasks)
+        summary.update(evaluation_config=config, evaluation_fingerprint=run["fingerprint"],
+                       updated_at=now(), results_sha256=sha256(args.output_dir / "results.jsonl"))
+        write_json(args.output_dir / "summary.json", summary)
         print(f"complete={summary['complete']} pass@1={summary['micro_pass_at_1_percent']} ({summary['passes']}/{summary['expected']})")
         return 0 if summary["complete"] else 2
 

@@ -6,7 +6,7 @@
 - Закреплённый JSONL: SHA256, схема всех 1164 задач, шесть категорий,
   50 репозиториев; historical ответы/метрики очищаются whitelist-загрузчиком.
   Все 9592 записи ZIP прошли проверку безопасных путей.
-- 23 stdlib unit/launcher-теста прошли: данные, ID/хеши, traversal/links,
+- 24 stdlib unit/launcher-теста прошли: данные, ID/хеши, traversal/links,
   повреждения/дубликаты JSONL, resume, exact whitespace, FIM/budget/close,
   отсутствие model imports при оценке, ES и знаменатели, полный gold gate,
   namespace/scripts, одинаковые параметры launcher, пробелы и exit codes.
@@ -14,6 +14,9 @@
   совпадают; capture interpreter с пробелами получает точные аргументы и
   возвращает 37; отсутствующий `--python` возвращает 2.
   Отдельно проверен настоящий Windows native shim со stderr и exit=37.
+  Реальный Windows reader lock воспроизводит PermissionError; повторная
+  атомарная запись переживает его. После исправления pilot gold снова 12/12,
+  все 12 отдельных result.json в точности совпадают с основным JSONL.
 - Синтетический Docker-check подтвердил чтение изменённого файла из `/repo`,
   независимость двух параллельных задач, pass/test_fail/timeout/oom/infra,
   nonroot, отсутствие socket и удаление контейнеров. Timeout включал потомка.

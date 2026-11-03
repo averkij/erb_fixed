@@ -8,6 +8,7 @@ from pathlib import Path
 import platform
 import subprocess
 import sys
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = 1
@@ -78,7 +79,15 @@ def write_json(path, value, exclusive=False):
             f.write("\n")
             f.flush()
             os.fsync(f.fileno())
-        os.replace(temp, path)
+        for attempt in range(10):
+            try:
+                os.replace(temp, path)
+                break
+            except PermissionError:
+                # Windows readers/scanners can briefly deny FILE_SHARE_DELETE.
+                if attempt == 9:
+                    raise
+                time.sleep(0.1 * (attempt + 1))
 
 
 def append_jsonl(f, value):
