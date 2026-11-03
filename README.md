@@ -22,6 +22,14 @@ oracle **1089/1164 (93,56%)**, 75 test_fail в четырёх проектах; 
 [CSV всех задач](control_report/tasks.csv), [JSON-доказательства](control_report/evidence.json),
 [границы проверки](VALIDATION.md).
 
+Точные ID и метки для последующего анализа сохранены отдельно:
+[task_labels.json](control_report/task_labels.json) (полный каталог и `id_sets`)
+и [task_labels.csv](control_report/task_labels.csv) (все 1164 ID с флагами 0/1).
+`test_fail` означает отказ **oracle**, 75 ID; `empty_green` — успешную пустую
+вставку, 285 ID. В данном измерении группы не пересекаются; без обеих остаётся
+804 задачи. Infrastructure_error ID 872 не превращён в test_fail или empty_green.
+Метки привязаны к SHA256 датасета и конкретному контрольному измерению.
+
 ## 1. Зависимости и рабочие каталоги
 
 Все относительные пути ниже считаются от корня checkout `erb_fixed`, включая
@@ -394,6 +402,33 @@ python report_controls.py --data data/exec_repo_bench.jsonl --gold evaluation/go
 Фактический статус проверок, включая ограничения полного gold и сервера:
 [VALIDATION.md](VALIDATION.md). Прохождение локальных тестов/пилота не заменяет
 полный gold и не подтверждает совместимость GPU-сервера.
+
+## Аналитический пересчёт по сохранённым меткам
+
+Cwd — корень `erb_fixed` на локальной Windows/Linux, нужен только Python stdlib.
+Исходные оценки сохраняются. Экспорт меток перезаписывает только производные
+`task_labels.json` / `task_labels.csv`; выполняйте его после осознанного обновления
+контрольного evidence. Для нового контрольного измерения можно выбрать отдельный
+`--output-dir`, чтобы сохранить прежние метки.
+
+```powershell
+python task_labels.py export --evidence control_report/evidence.json --output-dir control_report
+python task_labels.py score --results evaluation/qwen30b-full/results.jsonl --output analysis/all.json
+python task_labels.py score --results evaluation/qwen30b-full/results.jsonl --exclude-label test_fail --output analysis/without-oracle-fails.json
+python task_labels.py score --results evaluation/qwen30b-full/results.jsonl --exclude-label test_fail --exclude-label empty_green --output analysis/without-both.json
+python task_labels.py score --results evaluation/qwen30b-full/results.jsonl --only-label empty_green --output analysis/empty-green-only.json
+```
+
+Замените `evaluation/qwen30b-full/results.jsonl` на существующий measured JSONL;
+рядом требуется его `manifest.json`. По умолчанию включаются все 1164 ID.
+Повторные `--only-label` задают объединение групп, затем вычитается объединение
+`--exclude-label`. Никакие группы не исключаются автоматически. JSON-выход
+содержит точные выбранные/исключённые ID, новые знаменатели, pass@1/ES, категории,
+проекты и хеши входов. Недостающие результаты и infrastructure_error сохраняют
+неполноту (null pass@1, exit=2); нулевой выбранный набор имеет null score.
+Новый `--output` можно повторно перезаписать; измеренные results/manifest/summary
+и каталог меток защищены от перезаписи этим параметром. Пересчёт — отдельный
+аналитический артефакт, он не подменяет полный gold gate и исходный score.
 
 ## Источники
 

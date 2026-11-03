@@ -6,7 +6,7 @@
 - Закреплённый JSONL: SHA256, схема всех 1164 задач, шесть категорий,
   50 репозиториев; historical ответы/метрики очищаются whitelist-загрузчиком.
   Все 9592 записи ZIP прошли проверку безопасных путей.
-- 25 stdlib unit/launcher-тестов прошли: данные, ID/хеши, traversal/links,
+- 27 stdlib unit/launcher-тестов прошли: данные, ID/хеши, traversal/links,
   повреждения/дубликаты JSONL, resume, exact whitespace, FIM/budget/close,
   отсутствие model imports при оценке, ES и знаменатели, полный gold gate,
   namespace/scripts, одинаковые параметры launcher, пробелы и exit codes.
@@ -76,6 +76,17 @@ CSV и JSON сверены по ID/статусам/суммам категор�
 проверен в изолированном Chromium на 1440×1000 и 390×900: поиск, focus, прокрутка
 таблиц, раскрытие диагностики, отсутствие page errors/HTTP-запросов и чтение
 без JavaScript. Desktop/mobile screenshots просмотрены; внешнего overflow нет.
+
+Сохранён отдельный [каталог меток](control_report/task_labels.json) и CSV всех
+1164 ID: `test_fail` — ровно 75 oracle test_fail, `empty_green` — ровно 285 empty
+pass. Списки `id_sets` и флаги CSV независимо сверены с измеренными результатами;
+пересечений нет, без обеих групп остаётся 804 задачи. ID 872 сохраняет неизвестный
+empty-исход и не получает этих меток. `task_labels.py score` проверен на полном
+oracle (1089/1164), исключении test_fail (1089/1089), исключении обеих (804/804)
+и выборе empty_green (285/285). Это аналитические подмножества; исходная оценка
+и полный gold gate сохраняются. Проверены неверные ID/хеши/дубли, пересечения
+меток, неполные входы, infrastructure_error, защита исходного summary от записи;
+measurement runtime SHA256 остался прежним.
 
 Общее локальное окружение по разрешению пользователя приведено к рабочей паре
 Transformers 4.45.2 / huggingface-hub 0.36.2 / tokenizers 0.20.1; импорт
