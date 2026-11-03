@@ -105,7 +105,10 @@ def run_lock(directory):
 
 
 def code_identity():
-    files = sorted([*ROOT.glob("*.py"), *(ROOT / "erb").rglob("*.py"), *(ROOT / "tests").rglob("*.py")])
+    # Measurement fingerprint excludes report renderers and tests; editing an
+    # unrelated report must not invalidate an already measured gold control.
+    files = sorted([*(ROOT / name for name in ("generate.py", "eval.py", "prepare_data.py", "prepare_images.py", "controls.py")),
+                    *(ROOT / "erb").rglob("*.py")])
     files += [ROOT / "data.lock.json"]
     source_hash = digest({p.relative_to(ROOT).as_posix(): sha256(p) for p in files})
     try:

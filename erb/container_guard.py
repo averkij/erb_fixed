@@ -8,28 +8,61 @@ from pathlib import Path
 import sys
 
 
-def module_name(root, relative):
-    path = root / relative
-    parts = [] if path.name == "__init__.py" else [path.stem]
-    parent = path.parent
-    while parent != root and (parent / "__init__.py").is_file():
-        parts.insert(0, parent.name)
-        parent = parent.parent
-    if not parts or not all(p.isidentifier() for p in parts):
-        raise ValueError("Cannot derive importable module: " + relative)
-    return ".".join(parts), str(parent)
+def module_names(relative):
+    path = Path(relative)
+    parts = list(path.parts[:-1]) + ([] if path.name == "__init__.py" else [path.stem])
+    names = [".".join(parts)]
+    if parts and parts[0] in {"src", "lib"}:
+        names.append(".".join(parts[1:]))
+    return [n for n in names if n]
+
+
+def resolve_spec(name):
+    """Resolve namespace/package paths without executing their __init__.py.
+    Some benchmark packages intentionally replace sys.modules entries at import.
+    """
+    search = None
+    prefix = []
+    for part in name.split("."):
+        prefix.append(part)
+        fullname = ".".join(prefix)
+        # Unqualified lookup against an explicit parent path avoids NamespacePath
+        # requiring a parent in sys.modules (we deliberately do not import it).
+        spec = importlib.machinery.PathFinder.find_spec(part, search)
+        if spec is None:
+            for finder in sys.meta_path:
+                if finder is importlib.machinery.PathFinder:
+                    continue
+                spec = finder.find_spec(fullname, search, None)
+                if spec is not None:
+                    break
+        if spec is None:
+            return None
+        search = list(spec.submodule_search_locations) if spec.submodule_search_locations is not None else None
+        if search is None and fullname != name:
+            return None
+    return spec
 
 
 def verify(root, targets):
     mapping = {}
+    scripts = []
     for relative in targets:
-        module, source_root = module_name(root, relative)
-        # find_spec checks origins without importing the edited target itself.
-        spec = importlib.util.find_spec(module)
         expected = str((root / relative).resolve())
-        if spec is None or not spec.origin or str(Path(spec.origin).resolve()) != expected:
-            raise RuntimeError("Import origin mismatch: %s -> %s, expected %s" % (module, getattr(spec, "origin", None), expected))
-        mapping[module] = expected
+        found = False
+        for module in module_names(relative):
+            spec = resolve_spec(module)
+            if spec and spec.origin:
+                if str(Path(spec.origin).resolve()) != expected:
+                    raise RuntimeError("Import origin mismatch: %s -> %s, expected %s" % (module, spec.origin, expected))
+                mapping[module] = expected
+                found = True
+        if not found:
+            # Standalone scripts/examples need not be installed/importable. Their
+            # exact target bytes are still verified and exec is observed at run time.
+            if not Path(expected).is_file():
+                raise RuntimeError("Missing target script: " + expected)
+            scripts.append(expected)
     # Editable installs must refer to /repo rather than a second pristine tree.
     editable = []
     for dist in importlib.metadata.distributions():
@@ -43,9 +76,10 @@ def verify(root, targets):
         if entry and Path(entry).is_dir() and "site-packages" in entry:
             for link in Path(entry).glob("*.egg-link"):
                 egg_links.append(link.read_text().splitlines()[0])
-    if not any(u.rstrip("/") == "file:///repo" for u in editable) and "/repo" not in egg_links:
+    if (not any(u.rstrip("/") == "file:///repo" or u.startswith("file:///repo/") for u in editable)
+            and not any(u == "/repo" or u.startswith("/repo/") for u in egg_links)):
         raise RuntimeError("No editable installation rooted at /repo")
-    return {"modules": mapping, "editable_urls": editable, "egg_links": egg_links}
+    return {"modules": mapping, "scripts": scripts, "editable_urls": editable, "egg_links": egg_links}
 
 
 class OriginGuard(importlib.abc.MetaPathFinder):

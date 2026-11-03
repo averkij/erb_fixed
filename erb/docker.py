@@ -55,7 +55,7 @@ class Limits:
 
 def create_args(name, image, limits):
     limits.validate()
-    return ["create", "--name", name, "--network", "none", "--user", "10001:10001",
+    return ["create", "--name", name, "--pull", "never", "--network", "none", "--user", "10001:10001",
             "--cap-drop", "ALL", "--security-opt", "no-new-privileges:true", "--init",
             "--cpus", str(limits.cpus), "--memory", limits.memory, "--memory-swap", limits.memory,
             "--pids-limit", str(limits.pids), "--workdir", "/repo", "--env", "PYTHONDONTWRITEBYTECODE=1",

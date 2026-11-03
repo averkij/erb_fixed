@@ -1,0 +1,4 @@
+# CPU-only verification in a separate venv; no Torch/model/vLLM required.
+transformers==5.19.0
+tokenizers==0.23.2
+Jinja2==3.1.6

@@ -12,6 +12,7 @@ from container_guard import OriginGuard
 def main():
     detail = {"exit_code": 70, "infrastructure_error": None, "imports": []}
     guard = None
+    executions = []
     try:
         task = json.loads(Path("/opt/erb/task.json").read_text())
         target = Path(task["target"])
@@ -22,6 +23,11 @@ def main():
         provenance = json.loads(Path("/opt/erb/imports.json").read_text())
         guard = OriginGuard(provenance["modules"])
         sys.meta_path.insert(0, guard)
+        def observe(event, args):
+            if event == "exec" and args and hasattr(args[0], "co_filename"):
+                if str(Path(args[0].co_filename).resolve()) == str(target):
+                    executions.append(str(target))
+        sys.addaudithook(observe)
     except BaseException as e:
         detail["infrastructure_error"] = str(e)
         traceback.print_exc()
@@ -41,6 +47,7 @@ def main():
             detail["exit_code"] = 70
         detail["imports"] = guard.observed
         detail["target_import_observed"] = any(x["origin"] == str(target) for x in guard.observed)
+        detail["target_execution_observed"] = bool(executions)
     Path("/tmp/erb-result.json").write_text(json.dumps(detail), encoding="utf-8")
     return detail["exit_code"]
 

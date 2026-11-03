@@ -75,7 +75,7 @@ def build_prompt(tokenizer, task, window=8192, context_limit=4096, generation_li
             break
     ctx = "".join(reversed(blocks))
     # Retokenization across boundaries can change counts; enforce the whole context cap.
-    ctx = clip(tokenizer, ctx, context_limit)
+    ctx = clip(tokenizer, ctx, context_limit, tail=True)
     available = budget - len(encode(tokenizer, render(tokenizer, content(ctx, "", ""))))
     if available < 2:
         raise ValueError("Protocol/context exceeds window")

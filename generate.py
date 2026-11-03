@@ -119,7 +119,8 @@ def main():
                cuda=torch.version.cuda, gpus=[torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())],
                variables={k: os.environ.get(k) for k in ["CUDA_VISIBLE_DEVICES", "VLLM_USE_FLASHINFER_SAMPLER", "OMP_NUM_THREADS"]})
     settings = {k: v for k, v in vars(args).items() if k not in {"data", "run_dir", "resume", "model", "model_revision", "tokenizer", "tokenizer_revision"}}
-    settings.update(n=1, context_order="close", top_p=1.0, stop_token_ids=[tokens[t] for t in STOP])
+    settings.update(n=1, context_order="close", top_p=1.0, stop_token_ids=[tokens[t] for t in STOP],
+                    skip_special_tokens=True, include_stop_str_in_output=False)
     run_config = dict(dataset_sha256=DATA_SHA, task_ids=[t["task_id"] for t in tasks],
                       code=code_identity(), model=model, tokenizer=tokenizer_model,
                       tokenizer_content_sha256=digest(tokenizer.backend_tokenizer.to_str()),
@@ -133,7 +134,7 @@ def main():
             return
         sampling = SamplingParams(temperature=args.temperature, top_p=1.0, n=1, seed=args.seed,
                                   max_tokens=args.max_new_tokens, stop_token_ids=settings["stop_token_ids"],
-                                  skip_special_tokens=False, include_stop_str_in_output=False)
+                                  skip_special_tokens=True, include_stop_str_in_output=False)
         async def session():
             engine = AsyncLLMEngine.from_engine_args(AsyncEngineArgs(
                 model=args.model, revision=revision, tokenizer=tokenizer_name, tokenizer_revision=tokenizer_revision,

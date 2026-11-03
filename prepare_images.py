@@ -1,6 +1,7 @@
 """Build isolated Python 3.9 Linux images, one per pinned benchmark repository."""
 import argparse
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 from pathlib import Path
 import shutil
@@ -19,13 +20,21 @@ def build_repository(repo, tasks, args, base, destination):
     config = {"repo": repo, "dataset_sha256": DATA_SHA, "archive_sha256": LOCK["files"]["repos.zip"]["sha256"],
               "base_image": base, "targets": targets,
               "build_files": {n: sha256(ROOT / n) for n in ["docker/Dockerfile", "docker/test-requirements.txt", "erb/container_guard.py", "erb/container_runner.py"]}}
+    config["scm_pretend_version"] = "0.0.0+erb.archive" if repo == "eip712" else ""
+    config["generated_cython_sources"] = ["msgpack/_cmsgpack.pyx"] if repo == "msgpack-python" else []
     fingerprint = digest(config)
     saved = destination / "image.json"
     if saved.exists():
         old = read_json(saved)
         if old.get("fingerprint") != fingerprint:
-            raise ValueError(f"Image settings changed for {repo}; use a new --output-dir")
-        if old.get("status") == "ready":
+            if not args.rebuild_changed:
+                raise ValueError(f"Image settings changed for {repo}; use a new --output-dir or --rebuild-changed")
+            history = destination / "history" / old["fingerprint"]
+            history.mkdir(parents=True, exist_ok=True)
+            for name in ["image.json", "build.log", "packages.txt", "imports.json"]:
+                if (destination / name).exists():
+                    shutil.copyfile(destination / name, history / name)
+        elif old.get("status") == "ready":
             output(["image", "inspect", old["image_id"]])
             return old
     record = dict(config, fingerprint=fingerprint, started_at=now(), status="infrastructure_error")
@@ -42,6 +51,7 @@ def build_repository(repo, tasks, args, base, destination):
             tag = "erb-fixed/" + repo.lower() + ":" + fingerprint[:16]
             with (destination / "build.log").open("wb") as log:
                 result = command(["build", "--progress=plain", "--build-arg", "BASE_IMAGE=" + base,
+                                  "--build-arg", "SCM_PRETEND_VERSION=" + config["scm_pretend_version"],
                                   "--tag", tag, context], timeout=args.build_timeout, check=False,
                                  stdout=log, stderr=subprocess.STDOUT)
             if result.returncode:
@@ -72,9 +82,11 @@ def main():
     p.add_argument("--base-image", help="Default: prior manifest digest, otherwise python:3.9-bookworm")
     p.add_argument("--selection", choices=["full", "pilot"], default="full")
     p.add_argument("--build-timeout", type=int, default=1800)
+    p.add_argument("--build-workers", type=int, default=1)
+    p.add_argument("--rebuild-changed", action="store_true", help="Archive previous build diagnostics before replacing derived records")
     args = p.parse_args()
-    if args.build_timeout < 1:
-        p.error("build timeout must be positive")
+    if args.build_timeout < 1 or args.build_workers < 1:
+        p.error("build timeout and build workers must be positive")
     tasks = load_dataset(args.data)
     verify_file(args.archive, "repos.zip")
     daemon = daemon_info()
@@ -95,12 +107,16 @@ def main():
             by_repo[task["repo_name"]].append(task)
     with run_lock(args.output_dir):
         records = {}
-        for repo in sorted(by_repo):
-            print(f"Preparing {repo}", flush=True)
-            records[repo] = build_repository(repo, by_repo[repo], args, base, args.output_dir / repo)
-            write_json(args.output_dir / "manifest.json", manifest(dict(dataset_sha256=DATA_SHA,
-                       archive_sha256=LOCK["files"]["repos.zip"]["sha256"], base_image=base,
-                       code=code_identity(), daemon=daemon, images=records), "images"))
+        with ThreadPoolExecutor(max_workers=args.build_workers) as pool:
+            futures = {pool.submit(build_repository, repo, by_repo[repo], args, base, args.output_dir / repo): repo
+                       for repo in sorted(by_repo)}
+            for future in as_completed(futures):
+                repo = futures[future]
+                records[repo] = future.result()
+                print(f"{len(records)}/{len(by_repo)} {repo}: {records[repo]['status']}", flush=True)
+                write_json(args.output_dir / "manifest.json", manifest(dict(dataset_sha256=DATA_SHA,
+                           archive_sha256=LOCK["files"]["repos.zip"]["sha256"], base_image=base,
+                           build_workers=args.build_workers, code=code_identity(), daemon=daemon, images=records), "images"))
         failures = [r for r in records if records[r]["status"] != "ready"]
         print(f"Ready: {len(records)-len(failures)}/{len(records)}; failures: {failures}")
         return 2 if failures else 0

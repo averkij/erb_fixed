@@ -77,26 +77,33 @@ def main():
     limits = Limits(args.cpus, args.memory, args.pids, args.timeout).validate()
     tasks = select_tasks(load_dataset(args.data), args.selection)
     generation, answers = validate_input(tasks, args.run_dir)
+    control = generation["config"].get("control")
     image_manifest = check_manifest(read_json(args.images), "images")
     if image_manifest["config"].get("dataset_sha256") != DATA_SHA:
         raise ValueError("Images were prepared for different data")
     available = image_manifest["config"]["images"]
     images = {}
+    image_errors = {}
     for repo in sorted({t["repo_name"] for t in tasks}):
         item = available.get(repo, {})
         if item.get("status") != "ready" or not item.get("image_id", "").startswith("sha256:"):
-            raise ValueError(f"No prepared image for {repo}")
-        images[repo] = item["image_id"]
+            if control is None:
+                raise ValueError(f"No prepared image for {repo}")
+            images[repo] = None
+            image_errors[repo] = item.get("error", f"No prepared image for {repo}")
+        else:
+            images[repo] = item["image_id"]
     daemon = daemon_info()
     for image in set(images.values()):
-        output(["image", "inspect", image])
+        if image is not None:
+            output(["image", "inspect", image])
     code = code_identity()
-    control = generation["config"].get("control")
     gold_sha = gold_gate(args.gold_summary, images, asdict(limits), code) if args.selection == "full" and not control else None
     config = dict(dataset_sha256=DATA_SHA, task_ids=[t["task_id"] for t in tasks], selection=args.selection,
                   control=control, generation_fingerprint=generation["fingerprint"],
                   generations_sha256=sha256(args.run_dir / "generations.jsonl"), images=images,
                   image_manifest_sha256=sha256(args.images), limits=asdict(limits), workers=args.workers,
+                  image_preparation_errors=image_errors,
                   es_implementation=ES_IMPLEMENTATION, code=code, environment=environment(), daemon=daemon,
                   gold_summary_sha256=gold_sha)
     with run_lock(args.output_dir):
@@ -110,7 +117,18 @@ def main():
 
         def one(task):
             middle = answers[task["task_id"]]["generated_middle"]
-            result = evaluate_task(task, middle, images[task["repo_name"]], limits, artifacts / str(task["task_id"]))
+            directory = artifacts / str(task["task_id"])
+            if images[task["repo_name"]] is None:
+                directory.mkdir()
+                reason = image_errors[task["repo_name"]]
+                (directory / "stdout.txt").write_bytes(b"")
+                (directory / "stderr.txt").write_text(reason, encoding="utf-8")
+                result = dict(task_id=task["task_id"], repo_name=task["repo_name"], fill_type=task["fill_type"],
+                              status="infrastructure_error", infrastructure_error=reason, phase="image_preparation",
+                              exit_code=None, oom_killed=False, timed_out=False, duration_seconds=0,
+                              started_at=now(), completed_at=now(), image_id=None)
+            else:
+                result = evaluate_task(task, middle, images[task["repo_name"]], limits, directory)
             result.update(dataset_sha256=DATA_SHA, es=edit_similarity(task["middle_code"], middle),
                           evaluation_fingerprint=run["fingerprint"])
             return result
