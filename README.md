@@ -359,10 +359,26 @@ python report_controls.py --data data/exec_repo_bench.jsonl --gold evaluation/go
 ```
 
 Входы — исходный JSONL, оба measured manifest/results и image manifest. Выходы —
-`control_report/report.html`, `report.md`, `evidence.json` и лицензия Inter.
+`control_report/report.html`, `report.md`, `evidence.json`, `tasks.csv` и лицензия Inter.
 Повторный вызов перезаписывает производный отчёт; сырые измерения не меняются.
 Отчёт включает все 50 проектов/шесть категорий и сохраняет инфраструктурные
 пробелы с точными знаменателями.
+
+Если полный контроль завершился с инфраструктурными пробелами, их можно явно
+повторить в новом каталоге, сохранив исходные измерения. Cwd тот же; Docker
+должен быть доступен. Повтор использует один worker и исходные образы/лимиты,
+проверяет совпадение исходного кода и не повторяет test_fail/timeout/OOM:
+
+```powershell
+python retry_controls.py --data data/exec_repo_bench.jsonl --source evaluation/empty --control empty --output-dir evaluation/empty-infra-retry
+python report_controls.py --data data/exec_repo_bench.jsonl --gold evaluation/gold --empty evaluation/empty --empty-retry evaluation/empty-infra-retry --images images/manifest.json --output-dir control_report
+```
+
+Для gold используются `--control gold` и `--gold-retry`. Выход повторной оценки —
+собственные manifest/results/summary и диагностика. Новый каталог обязателен;
+автоматической перезаписи нет. Отчёт явно показывает повтор, сохраняет первичные
+статусы и проверяет, что заменены только исходные infrastructure_error. Такая
+сводка контролей не подменяет исходный gold-summary для model gate.
 
 Фактический статус проверок, включая ограничения полного gold и сервера:
 [VALIDATION.md](VALIDATION.md). Прохождение локальных тестов/пилота не заменяет

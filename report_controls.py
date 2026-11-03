@@ -2,7 +2,9 @@
 import argparse
 import base64
 from collections import Counter
+import csv
 from html import escape
+import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -31,13 +33,21 @@ def control(directory, kind, tasks):
     seen = set()
     for row in rows:
         i = row["task_id"]
-        if i not in expected or i in seen or row["status"] not in STATUSES:
+        if type(i) is not int or i not in expected or i not in m["config"]["task_ids"] or i in seen or row["status"] not in STATUSES:
             raise ValueError("Unknown/duplicate control result or status")
         if row.get("dataset_sha256") != DATA_SHA or row.get("evaluation_fingerprint") != m["fingerprint"]:
             raise ValueError("Result fingerprint/data hash differs")
         task = expected[i]
         if row["repo_name"] != task["repo_name"] or row["fill_type"] != task["fill_type"]:
             raise ValueError("Result category/repository differs from source task")
+        middle = task["middle_code"] if kind == "gold" else ""
+        expected_candidate = hashlib.sha256((task["prefix_code"] + middle + task["suffix_code"]).encode("utf-8")).hexdigest()
+        if row.get("candidate_sha256") is not None and row["candidate_sha256"] != expected_candidate:
+            raise ValueError("Measured candidate bytes differ from the declared gold/empty control")
+        if row["status"] != "infrastructure_error" and row.get("candidate_sha256") != expected_candidate:
+            raise ValueError("Measured task has no verifiable candidate content hash")
+        if row.get("image_id") != m["config"]["images"].get(task["repo_name"]):
+            raise ValueError("Result image ID differs from measurement manifest")
         seen.add(i)
     summary = summarize(rows, tasks)
     return m, rows, summary
@@ -52,21 +62,57 @@ def percentage(group):
     return f"{value:.2f}%" if value is not None else "не определена"
 
 
+def merge_infrastructure_retry(original, source_manifest, source_sha, retries, retry_manifest):
+    """Only an explicit, provenance-matched retry may fill infrastructure gaps."""
+    source, config = source_manifest["config"], retry_manifest["config"]
+    if (config.get("selection") != "infrastructure_retry" or config.get("workers") != 1
+            or config.get("retry_of_fingerprint") != source_manifest["fingerprint"]
+            or config.get("retry_of_results_sha256") != source_sha
+            or any(config.get(k) != source.get(k) for k in ["control", "dataset_sha256", "images", "limits", "image_manifest_sha256"])
+            or config.get("code", {}).get("source_sha256") != source.get("code", {}).get("source_sha256")):
+        raise ValueError("Retry provenance/runtime/images/limits differ from original control")
+    gaps = {r["task_id"] for r in original if r["status"] == "infrastructure_error"}
+    if (set(config.get("task_ids", [])) != gaps or {r["task_id"] for r in retries} != gaps
+            or len(retries) != len(gaps)):
+        raise ValueError("Retry must cover exactly original infrastructure gaps; candidate failures cannot be replaced")
+    replacements = {r["task_id"]: r for r in retries}
+    return [replacements.get(r["task_id"], r) for r in original]
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--data", type=Path, default=Path("data/exec_repo_bench.jsonl"))
     p.add_argument("--gold", type=Path, required=True, help="Directory with measured gold manifest/results")
     p.add_argument("--empty", type=Path, required=True)
+    p.add_argument("--gold-retry", type=Path, help="Explicit infrastructure-only retry from retry_controls.py")
+    p.add_argument("--empty-retry", type=Path)
     p.add_argument("--images", type=Path, required=True)
     p.add_argument("--output-dir", type=Path, default=Path("control_report"))
     args = p.parse_args()
     tasks = load_dataset(args.data)
     gm, gold, gs = control(args.gold, "gold", tasks)
     em, empty, es = control(args.empty, "empty", tasks)
+    primary = {"gold": list(gold), "empty": list(empty)}
+    retry_evidence = {}
+    for label, directory, source, source_manifest in [("gold", args.gold_retry, args.gold, gm), ("empty", args.empty_retry, args.empty, em)]:
+        if directory:
+            rm, rr, _ = control(directory, label, tasks)
+            merged = merge_infrastructure_retry(primary[label], source_manifest, sha256(source / "results.jsonl"), rr, rm)
+            retry_evidence[label] = dict(manifest=rm, results=rr, results_sha256=sha256(directory / "results.jsonl"))
+            if label == "gold":
+                gold, gs = merged, summarize(merged, tasks)
+            else:
+                empty, es = merged, summarize(merged, tasks)
     if (gm["config"]["images"] != em["config"]["images"]
             or gm["config"]["limits"] != em["config"]["limits"]):
         raise ValueError("Gold/empty image IDs or limits differ")
+    if (not gm["config"].get("code", {}).get("source_sha256")
+            or gm["config"]["code"]["source_sha256"] != em["config"].get("code", {}).get("source_sha256")):
+        raise ValueError("Gold/empty controller source hashes differ; use matched code")
     images = check_manifest(read_json(args.images), "images")
+    image_manifest_hash = sha256(args.images)
+    if any(m["config"].get("image_manifest_sha256") != image_manifest_hash for m in [gm, em]):
+        raise ValueError("Supplied image manifest differs from the measured control inputs")
     args.output_dir.mkdir(parents=True, exist_ok=True)
     checked = now()
     windows = {}
@@ -76,15 +122,41 @@ def main():
         windows[label] = {"start": min(starts) if starts else None, "end": max(ends) if ends else None}
     overlap = (all(w["start"] and w["end"] for w in windows.values())
                and max(w["start"] for w in windows.values()) < min(w["end"] for w in windows.values()))
+    gold_by_id = {r["task_id"]: r for r in gold}
+    empty_by_id = {r["task_id"]: r for r in empty}
+    with (args.output_dir / "tasks.csv").open("w", encoding="utf-8-sig", newline="") as stream:
+        primary_maps = {label: {r["task_id"]: r for r in rows} for label, rows in primary.items()}
+        fields = ["task_id", "repo_name", "fill_type", "oracle_status", "empty_status", "oracle_primary_status", "empty_primary_status", "oracle_seconds", "empty_seconds"]
+        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer.writeheader()
+        for task in tasks:
+            g, e = gold_by_id.get(task["task_id"], {}), empty_by_id.get(task["task_id"], {})
+            writer.writerow(dict(task_id=task["task_id"], repo_name=task["repo_name"], fill_type=task["fill_type"],
+                                 oracle_status=g.get("status", "not_recorded"), empty_status=e.get("status", "not_recorded"),
+                                 oracle_primary_status=primary_maps["gold"].get(task["task_id"], {}).get("status", "not_recorded"),
+                                 empty_primary_status=primary_maps["empty"].get(task["task_id"], {}).get("status", "not_recorded"),
+                                 oracle_seconds=g.get("duration_seconds"), empty_seconds=e.get("duration_seconds")))
+    def pair_status(row):
+        if row is None or row["status"] == "infrastructure_error":
+            return "unknown"
+        return "pass" if row["status"] == "pass" else "fail"
+    paired = Counter((pair_status(gold_by_id.get(t["task_id"])), pair_status(empty_by_id.get(t["task_id"]))) for t in tasks)
+    pair_labels = {"pass": "pass", "fail": "fail / timeout / OOM", "unknown": "infra / не записано"}
+    pair_rows = [["Oracle " + pair_labels[g], *[str(paired[g, e]) for e in pair_labels]] for g in pair_labels]
     compact = lambda rows: [{k: row.get(k) for k in ["task_id", "repo_name", "fill_type", "status", "exit_code", "duration_seconds",
                            "oom_killed", "timed_out", "candidate_sha256", "infrastructure_error", "runner"]} for row in sorted(rows, key=lambda r: r["task_id"])]
     evidence = dict(created_at=checked, dataset_sha256=DATA_SHA, gold=gs, empty=es,
+                    primary_results={label: compact(rows) for label, rows in primary.items()}, infrastructure_retries=retry_evidence,
                     measurement_windows=windows, controls_overlap=overlap,
+                    paired_counts={g: {e: paired[g, e] for e in pair_labels} for g in pair_labels},
                     gold_manifest=gm, empty_manifest=em, images_manifest=images,
                     results={"gold": compact(gold), "empty": compact(empty)},
                     input_sha256={"gold_results": sha256(args.gold / "results.jsonl"),
                                   "empty_results": sha256(args.empty / "results.jsonl"), "images": sha256(args.images)})
     write_json(args.output_dir / "evidence.json", evidence)
+    retry_note = ("Отдельные повторные попытки только для исходных infrastructure_error: "
+                  + "; ".join(f"{label}: {len(item['results'])}" for label, item in retry_evidence.items())
+                  + ". Сводка использует повторные результаты для этих ID; исходные попытки сохранены в evidence.json и отдельных колонках tasks.csv. Тестовые провалы не заменяются; повторные задачи выполнялись с одним worker и теми же образами/кодом/лимитами.") if retry_evidence else "Повторных попыток инфраструктурных ошибок нет."
     all_gold = gs["complete"] and gs["passes"] == len(tasks)
     known_gold_fail = sum(gs["statuses"][s] for s in ["test_fail", "timeout", "oom"])
     verdict = ("Oracle: 100% подтверждено" if all_gold else
@@ -92,7 +164,7 @@ def main():
                "Oracle: 100% пока не подтверждено — проверка неполна")
     overview = [("Эталон (oracle)", gs), ("Пустая вставка", es)]
     markdown = ["# ExecRepoBench: полный oracle и empty контроль", "", verdict, "",
-                f"Дата UTC: {checked}. Данные: {DATA_SHA}.", "",
+                f"Дата UTC: {checked}. Данные: {DATA_SHA}.", "", retry_note, "",
                 "| Контроль | Pass / все задачи | Полная доля | Тестировано | Test fail | Timeout | OOM | Infrastructure | Не записано |",
                 "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for label, group in overview:
@@ -100,6 +172,8 @@ def main():
         markdown.append(f"| {label} | {fraction(group)} | {percentage(group)} | {group['scored']} | {c['test_fail']} | {c['timeout']} | {c['oom']} | {c['infrastructure_error']} | {group['expected']-group['recorded']} |")
     markdown += ["", "Знаменатель — все 1164 исходные задачи. При infrastructure_error полная доля не определена.",
                  "Успешный empty не исключает задачу. Тесты/исходные проекты/выборка не менялись.", "",
+                 "## Парный контроль", "", "| Oracle / Empty | Empty pass | Empty fail/timeout/OOM | Empty infra/не записано |", "| --- | ---: | ---: | ---: |",
+                 *["| " + " | ".join(row) + " |" for row in pair_rows], "",
                  "## По категориям", "", "| Категория | Oracle pass / N | Oracle infra | Empty pass / N | Empty infra |", "| --- | ---: | ---: | ---: | ---: |"]
     categories = []
     for category in CATEGORIES:
@@ -109,6 +183,7 @@ def main():
     markdown += ["", "## Все 50 проектов", "", "| Проект | Oracle pass / N | Oracle fail/timeout/OOM | Oracle infra | Empty pass / N | Empty fail/timeout/OOM | Empty infra |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
     repositories = []
     issues = []
+    markdown_issues = []
     for repo in sorted(gs["repositories"]):
         g, e = gs["repositories"][repo], es["repositories"][repo]
         fails = lambda group: sum(group["statuses"][s] for s in ["test_fail", "timeout", "oom"])
@@ -118,23 +193,28 @@ def main():
         failed = next((r for r in gold if r["repo_name"] == repo and r["status"] != "pass"), None)
         if failed:
             log = args.gold / "tasks" / str(failed["task_id"]) / "stderr.txt"
-            text = log.read_text("utf-8", errors="replace") if log.exists() else failed.get("infrastructure_error", "")
+            text = "STDERR:\n" + (log.read_text("utf-8", errors="replace") if log.exists() else failed.get("infrastructure_error", ""))
+            stdout = log.with_name("stdout.txt")
+            if stdout.exists():
+                text = "STDOUT (tail):\n" + stdout.read_text("utf-8", errors="replace")[-10000:] + "\n\n" + text
             image_record = images["config"]["images"].get(repo, {})
             if image_record.get("status") != "ready":
                 build = args.images.parent / repo / "build.log"
                 if build.exists():
                     text += "\n\nBUILD LOG (tail):\n" + build.read_text("utf-8", errors="replace")[-10000:]
             issues.append(f"<details><summary>{cell(repo)} · задача {failed['task_id']} · {cell(failed['status'])}</summary><pre>{cell(text[-12000:])}</pre></details>")
-            markdown += ["", f"### {repo}: пример gold {failed['task_id']} — {failed['status']}", "", "```text", text[-4000:], "```", ""]
+            markdown_issues += ["", f"### {repo}: пример gold {failed['task_id']} — {failed['status']}", "", "```text", text[-4000:], "```", ""]
+    markdown += ["", "## Диагностика reference", "", "Один пример на проект с неуспешным gold; полный список статусов — в evidence.json."] + markdown_issues
     limits = gm["config"]["limits"]
     ready = sum(item["status"] == "ready" for item in images["config"]["images"].values())
     markdown += ["", "## Метод и границы", "",
                  f"Образы: {ready}/50 готовы. Base: {images['config']['base_image']}.",
                  f"Ограничения: {json.dumps(limits, ensure_ascii=False)}; workers gold={gm['config']['workers']}, empty={em['config']['workers']}.",
                  f"Запуски контролей перекрывались по времени: {overlap}. Лимиты workers относятся к каждому запуску отдельно.",
+                 "Таймауты и OOM зависят от лимитов и параллельной нагрузки; они не доказывают семантическую ошибку вставки.",
                  "Каждый кандидат в свежем Linux-контейнере, сеть отключена, непривилегированный пользователь; точные prefix+middle+suffix.",
                  "Это локальное исполнение контрольных тестов. Модель/GPU/vLLM и серверная генерация не проверялись.",
-                 "Полные fingerprints, image IDs, статусы всех задач и сведения об импортах сохранены в evidence.json.",
+                 "Полные fingerprints, image IDs, статусы всех задач и сведения об импортах сохранены в evidence.json; плоская таблица всех ID — в tasks.csv.",
                  "При инфраструктурных ошибках итоговый model score не разрешён; нельзя объявлять непроверенные reference ошибочными."]
     (args.output_dir / "report.md").write_text("\n".join(markdown) + "\n", encoding="utf-8")
     assets = ROOT / "report_assets"
@@ -154,7 +234,9 @@ def main():
 <nav class="navigation" aria-label="Содержание"><a href="#result">Результат</a><a href="#categories">Категории</a><a href="#repositories">Проекты</a><a href="#failures">Диагностика</a><a href="#method">Метод и источники</a></nav>
 <section class="section" id="result"><p class="kicker">01 / Проверка oracle</p><h2>{cell(verdict)}</h2>
 {table(['Контроль','Pass / все','Полная доля','Тестировано','Test fail','Timeout','OOM','Infrastructure','Не записано'], summary_rows)}
-<p class="note">Знаменатель — все 1 164 задачи. При проблемах инфраструктуры полная доля не определена: неизвестные исходы нельзя превращать в провал reference или незаметно исключать. Успешный empty остаётся в наборе.</p></section>
+<p class="note">Знаменатель — все 1 164 задачи. При проблемах инфраструктуры полная доля не определена: неизвестные исходы нельзя превращать в провал reference или незаметно исключать. Успешный empty остаётся в наборе.</p>
+<h3>Парный контроль на тех же ID</h3>{table(['Oracle / Empty','Empty pass','Empty fail / timeout / OOM','Empty infra / не записано'], pair_rows)}
+<p class="caption">Успешные пустые вставки на строке Oracle pass показывают нечувствительность тестов к этой вставке в проверенной среде. Ни одна из этих задач не исключена.</p></section>
 <section class="section" id="categories"><p class="kicker">02 / Все шесть категорий</p><h2>Результаты по типу вставки</h2>{table(['Категория','Oracle pass / N','Oracle infra','Empty pass / N','Empty infra'], categories)}</section>
 <section class="section" id="repositories"><p class="kicker">03 / Все 50 проектов</p><h2>Проверка каждого репозитория</h2><div class="controls"><label for="repo-filter">Поиск проекта</label> <input id="repo-filter" type="search" placeholder="Название проекта"> <span id="shown" role="status">50 проектов</span></div>
 {table(['Проект','Oracle pass / N','Oracle fail / timeout / OOM','Oracle infra','Empty pass / N','Empty fail / timeout / OOM','Empty infra'], repositories, 'repos')}
@@ -163,6 +245,10 @@ def main():
 <section class="section" id="method"><p class="kicker">05 / Метод, источники и границы</p><h2>Что именно проверено</h2><div class="prose"><p>Из неизменённого release JSONL удалены исторические генерации. ID — индекс строки плюс SHA256 полного датасета. Oracle явно подставляет reference middle; empty явно подставляет пустую строку. Кандидат собирается точно как prefix + middle + suffix.</p><p>Каждая задача — свежий Linux-контейнер, UID 10001, без сети, host mounts и Docker socket. Ограничения: {cell(json.dumps(limits))}; workers: gold {gm['config']['workers']}, empty {em['config']['workers']}. Образы собраны на Python 3.9, base digest: <code>{cell(images['config']['base_image'])}</code>. Исходные проекты, тесты и отбор задач не менялись.</p><p>Это локальные контрольные измерения. Модель, CUDA, vLLM и серверная генерация не проверялись. Полная модельная оценка требует 1164/1164 gold pass с той же инфраструктурой. Изменения окружения и build inputs фиксируются в image manifest; пакету без VCS может быть задана явно обозначенная служебная SCM-версия для сборки.</p><p>Данные: <a href="https://huggingface.co/datasets/CSJianYang/ExecRepoBench/tree/fa61028ce495c9ceff58398b8a7c47b5ae9f5276">закреплённый HF revision</a>, SHA256 <code>{DATA_SHA}</code>. <a href="https://arxiv.org/abs/2412.11990">Статья ExecRepoBench</a>. Машиночитаемые результаты: <a href="evidence.json">evidence.json</a>; текстовая версия: <a href="report.md">report.md</a>. Полные сырые stdout/stderr/build logs сохраняются локально в каталогах запусков; JSON содержит fingerprints и хеши входов.</p></div></section>
 <footer class="page-footer">ExecRepoBench · oracle / empty controls · {cell(checked)} · Inter 4.1, OFL</footer></main>
 <script>const input=document.getElementById('repo-filter');const rows=[...document.querySelectorAll('#repos tbody tr')];input.addEventListener('input',()=>{{let count=0;const term=input.value.toLocaleLowerCase();rows.forEach(row=>{{row.hidden=!row.cells[0].textContent.toLocaleLowerCase().includes(term);if(!row.hidden)count++}});document.getElementById('shown').textContent=count+' / 50 проектов'}});</script></body></html>"""
+    timing = ("<p class='caption'>Периоды измерения UTC: oracle " + cell(windows["gold"]["start"]) + " — " + cell(windows["gold"]["end"])
+              + "; empty " + cell(windows["empty"]["start"]) + " — " + cell(windows["empty"]["end"])
+              + ". Перекрытие запусков: " + ("да" if overlap else "нет") + ". Workers указаны для каждого запуска отдельно. Таймауты и OOM зависят от лимитов и параллельной нагрузки; они не доказывают семантическую ошибку вставки.</p>")
+    html = html.replace("<h2>Что именно проверено</h2>", "<h2>Что именно проверено</h2>" + timing + '<p>' + cell(retry_note) + '</p><p><a href="tasks.csv">Все 1 164 ID: CSV со статусами oracle и empty</a>.</p>')
     (args.output_dir / "report.html").write_text(html, encoding="utf-8")
     shutil.copyfile(assets / "INTER-LICENSE.txt", args.output_dir / "INTER-LICENSE.txt")
     print("Oracle: all reference tasks passed" if all_gold else "Oracle: failed or unverified reference tasks remain")

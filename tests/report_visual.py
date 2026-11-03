@@ -38,6 +38,14 @@ def main():
                 assert scroll["scroll"] > scroll["client"]
                 page.locator("#repos").evaluate("el=>el.parentElement.scrollLeft=300")
                 assert page.locator("#repos").evaluate("el=>el.parentElement.scrollLeft") > 0
+            if page.locator("details").count():
+                detail = page.locator("details").first
+                detail.locator("summary").click()
+                assert detail.get_attribute("open") is not None
+                assert page.evaluate("document.documentElement.scrollWidth<=innerWidth")
+                page.screenshot(path=str(args.output_dir / (label + "-diagnostic.png")))
+                detail.locator("summary").click()
+                assert detail.get_attribute("open") is None
             assert not errors, errors
             assert not external, external
             result.append(dict(viewport=label, width=width, overflow=False, filter=True, focus=True, errors=errors, external_requests=external))
