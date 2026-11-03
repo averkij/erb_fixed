@@ -163,6 +163,16 @@ def main():
                "Oracle: 100% не достигнуто в этой среде" if known_gold_fail else
                "Oracle: 100% пока не подтверждено — проверка неполна")
     overview = [("Эталон (oracle)", gs), ("Пустая вставка", es)]
+    uncertainty = []
+    for label, group in overview:
+        unknown = group["expected"] - group["scored"]
+        if unknown:
+            low, high = group["passes"], group["passes"] + unknown
+            uncertainty.append(f"{label}: {unknown} неизвестных исходов. Подтверждённая нижняя граница — {low}/{group['expected']} ({100*low/group['expected']:.2f}%); верхняя при успехе всех неизвестных — {high}/{group['expected']} ({100*high/group['expected']:.2f}%). Это границы, а не полный score.")
+    for label, rows in [("Oracle", gold), ("Empty", empty)]:
+        for row in rows:
+            if row["status"] == "infrastructure_error":
+                uncertainty.append(f"{label}, ID {row['task_id']} ({row['repo_name']}): {row.get('infrastructure_error', 'infrastructure_error')}.")
     markdown = ["# ExecRepoBench: полный oracle и empty контроль", "", verdict, "",
                 f"Дата UTC: {checked}. Данные: {DATA_SHA}.", "", retry_note, "",
                 "| Контроль | Pass / все задачи | Полная доля | Тестировано | Test fail | Timeout | OOM | Infrastructure | Не записано |",
@@ -170,6 +180,7 @@ def main():
     for label, group in overview:
         c = group["statuses"]
         markdown.append(f"| {label} | {fraction(group)} | {percentage(group)} | {group['scored']} | {c['test_fail']} | {c['timeout']} | {c['oom']} | {c['infrastructure_error']} | {group['expected']-group['recorded']} |")
+    markdown += ["", *uncertainty]
     markdown += ["", "Знаменатель — все 1164 исходные задачи. При infrastructure_error полная доля не определена.",
                  "Успешный empty не исключает задачу. Тесты/исходные проекты/выборка не менялись.", "",
                  "## Парный контроль", "", "| Oracle / Empty | Empty pass | Empty fail/timeout/OOM | Empty infra/не записано |", "| --- | ---: | ---: | ---: |",
@@ -205,6 +216,8 @@ def main():
             issues.append(f"<details><summary>{cell(repo)} · задача {failed['task_id']} · {cell(failed['status'])}</summary><pre>{cell(text[-12000:])}</pre></details>")
             markdown_issues += ["", f"### {repo}: пример gold {failed['task_id']} — {failed['status']}", "", "```text", text[-4000:], "```", ""]
     markdown += ["", "## Диагностика reference", "", "Один пример на проект с неуспешным gold; полный список статусов — в evidence.json."] + markdown_issues
+    diagnostic_note = "Статус test_fail означает ненулевой выход проектного test runner. Он может включать проблемы окружения: например, отсутствие тестового ресурса NLTK punkt или несовместимое поведение зависимостей. Нельзя интерпретировать все такие исходы как ошибки reference."
+    markdown += ["", diagnostic_note]
     limits = gm["config"]["limits"]
     ready = sum(item["status"] == "ready" for item in images["config"]["images"].values())
     markdown += ["", "## Метод и границы", "",
@@ -249,6 +262,8 @@ def main():
               + "; empty " + cell(windows["empty"]["start"]) + " — " + cell(windows["empty"]["end"])
               + ". Перекрытие запусков: " + ("да" if overlap else "нет") + ". Workers указаны для каждого запуска отдельно. Таймауты и OOM зависят от лимитов и параллельной нагрузки; они не доказывают семантическую ошибку вставки.</p>")
     html = html.replace("<h2>Что именно проверено</h2>", "<h2>Что именно проверено</h2>" + timing + '<p>' + cell(retry_note) + '</p><p><a href="tasks.csv">Все 1 164 ID: CSV со статусами oracle и empty</a>.</p>')
+    html = html.replace("<h2>Диагностика reference</h2>", "<h2>Диагностика reference</h2><p>" + cell(diagnostic_note) + "</p>")
+    html = html.replace('<h3>Парный контроль на тех же ID</h3>', ''.join('<p class="note">' + cell(note) + '</p>' for note in uncertainty) + '<h3>Парный контроль на тех же ID</h3>')
     (args.output_dir / "report.html").write_text(html, encoding="utf-8")
     shutil.copyfile(assets / "INTER-LICENSE.txt", args.output_dir / "INTER-LICENSE.txt")
     print("Oracle: all reference tasks passed" if all_gold else "Oracle: failed or unverified reference tasks remain")

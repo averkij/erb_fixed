@@ -1,0 +1,1165 @@
+﻿task_id,repo_name,fill_type,oracle_status,empty_status,oracle_primary_status,empty_primary_status,oracle_seconds,empty_seconds
+0,Chronyk,Random Single-line Completion,pass,pass,pass,pass,8.703000000095926,9.950913792999927
+1,Chronyk,Random Multi-line Completion,pass,pass,pass,pass,9.0,10.213243762031198
+2,Chronyk,Random Span Completion,pass,test_fail,pass,test_fail,9.01500000001397,5.675791924993973
+3,Chronyk,grammar-based: statement,pass,test_fail,pass,test_fail,9.0,5.523166095954366
+4,Chronyk,grammar-based: block,pass,test_fail,pass,test_fail,9.187000000034459,10.21155839896528
+5,Chronyk,grammar-based: expression,pass,test_fail,pass,test_fail,8.85999999998603,9.685559065022971
+6,Chronyk,grammar-based: statement,pass,test_fail,pass,test_fail,10.030999999959022,7.536603346001357
+7,Chronyk,grammar-based: expression,pass,test_fail,pass,test_fail,9.594000000040978,11.289126038027462
+8,Chronyk,grammar-based: expression,pass,test_fail,pass,test_fail,9.73499999998603,16.881261650007218
+9,Chronyk,grammar-based: block,pass,test_fail,pass,test_fail,9.719000000040978,10.26350346201798
+10,Chronyk,grammar-based: block,pass,test_fail,pass,test_fail,9.063000000081956,10.958977450965904
+11,Chronyk,grammar-based: expression,pass,test_fail,pass,test_fail,9.093999999924563,6.5538964190054685
+12,Chronyk,grammar-based: expression,pass,test_fail,pass,test_fail,11.530999999959022,10.542276230000425
+13,Chronyk,grammar-based: expression,pass,pass,pass,pass,11.687000000034459,11.263366191007663
+14,Chronyk,grammar-based: block,pass,test_fail,pass,test_fail,11.609000000054948,12.448387129988987
+15,PTable,grammar-based: expression,pass,test_fail,pass,test_fail,4.765999999945052,3.7967950560268946
+16,PTable,grammar-based: statement,pass,test_fail,pass,test_fail,4.907000000006519,3.523179965966847
+17,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.547000000020489,4.111998528009281
+18,PTable,grammar-based: statement,pass,pass,pass,pass,3.827999999979511,4.197166637983173
+19,PTable,grammar-based: expression,pass,test_fail,pass,test_fail,3.48499999998603,3.851547833008226
+20,PTable,grammar-based: block,pass,test_fail,pass,test_fail,3.656000000075437,4.244165980955586
+21,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.157000000006519,4.678445898985956
+22,PTable,grammar-based: block,pass,test_fail,pass,test_fail,3.875,5.367829649010673
+23,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.125,5.616988516005222
+24,PTable,grammar-based: statement,pass,test_fail,pass,test_fail,4.375,4.342451227013953
+25,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.312000000034459,4.196943582966924
+26,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.406000000075437,3.7247384379734285
+27,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.437000000034459,3.9596208489965647
+28,PTable,grammar-based: block,pass,pass,pass,pass,4.625,4.165913945995271
+29,PTable,grammar-based: expression,pass,pass,pass,pass,4.655999999959022,4.140540051041171
+30,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.5,3.6743278880021535
+31,PTable,grammar-based: statement,pass,test_fail,pass,test_fail,4.391000000061467,4.036269596021157
+32,PTable,grammar-based: block,pass,pass,pass,pass,4.468999999924563,3.7771799140027724
+33,PTable,grammar-based: block,pass,test_fail,pass,test_fail,5.265999999945052,3.383800149022136
+34,PTable,grammar-based: expression,pass,test_fail,pass,test_fail,4.625,3.3181373400148004
+35,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.655999999959022,3.33348043699516
+36,PTable,grammar-based: block,pass,test_fail,pass,test_fail,4.890999999945052,3.3312310079927556
+37,PTable,grammar-based: expression,pass,test_fail,pass,test_fail,5.155999999959022,3.1633492640103213
+38,PTable,grammar-based: expression,pass,test_fail,pass,test_fail,5.422000000020489,3.335048677981831
+39,PTable,grammar-based: statement,pass,test_fail,pass,test_fail,5.125,2.8843643959844485
+40,PTable,grammar-based: expression,pass,pass,pass,pass,4.891000000061467,3.0444030860089697
+41,PTable,grammar-based: statement,pass,test_fail,pass,test_fail,4.891000000061467,2.9580668680137023
+42,PyPattyrn,Random Single-line Completion,pass,test_fail,pass,test_fail,14.031000000075437,12.822253560007084
+43,PyPattyrn,Random Multi-line Completion,pass,test_fail,pass,test_fail,14.375,12.478235048009083
+44,PyPattyrn,Random Multi-line Completion,pass,pass,pass,pass,14.01500000001397,12.539762170985341
+45,PyPattyrn,Random Span Completion,pass,pass,pass,pass,14.23499999998603,12.128029569983482
+46,PyPattyrn,Random Span Completion,pass,test_fail,pass,test_fail,14.187000000034459,12.062531625968404
+47,PyPattyrn,grammar-based: expression,pass,test_fail,pass,test_fail,14.0,12.162606213008985
+48,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.952999999979511,12.536819276981987
+49,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.983999999938533,12.235608086979482
+50,PyPattyrn,grammar-based: expression,pass,test_fail,pass,test_fail,13.093999999924563,12.399975057982374
+51,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.812999999965541,12.499649901990779
+52,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.922000000020489,12.451776184956543
+53,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.76500000001397,12.376353662984911
+54,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.625,12.0231627660105
+55,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.829000000027008,12.018409904034343
+56,PyPattyrn,grammar-based: statement,pass,test_fail,pass,test_fail,12.687000000034459,12.146257343993057
+57,PyPattyrn,grammar-based: expression,pass,test_fail,pass,test_fail,12.829000000027008,2.0765194490086287
+58,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.563000000081956,12.026467698044144
+59,PyPattyrn,grammar-based: block,pass,test_fail,pass,test_fail,12.702999999979511,11.98891397297848
+60,PyPattyrn,grammar-based: expression,pass,test_fail,pass,test_fail,12.547000000020489,12.029152364004403
+61,PyPattyrn,grammar-based: expression,pass,pass,pass,pass,13.09299999999348,12.745820227020886
+62,PyPattyrn,grammar-based: expression,pass,test_fail,pass,test_fail,13.156000000075437,12.841100649966393
+63,PyPattyrn,grammar-based: statement,pass,test_fail,pass,test_fail,13.155999999959022,2.311642592016142
+64,Unipath,Random Span Completion,pass,test_fail,pass,test_fail,5.89000000001397,4.589853655023035
+65,Unipath,grammar-based: expression,pass,test_fail,pass,test_fail,5.890999999945052,4.690412061987445
+66,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,6.905999999959022,7.082940078980755
+67,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,7.157000000006519,6.83003082301002
+68,Unipath,grammar-based: statement,pass,test_fail,pass,test_fail,8.437999999965541,8.477719306014478
+69,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,8.78200000000652,10.260463059006725
+70,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,8.858999999938533,7.460026515007485
+71,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,9.437999999965541,7.268803418031894
+72,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,8.702999999979511,10.174982000957243
+73,Unipath,grammar-based: statement,pass,test_fail,pass,test_fail,9.281000000075437,7.916642419993877
+74,Unipath,grammar-based: expression,pass,test_fail,pass,test_fail,9.952999999979511,9.294263271032833
+75,Unipath,grammar-based: statement,pass,test_fail,pass,test_fail,9.827999999979511,7.451147265033796
+76,Unipath,grammar-based: expression,pass,pass,pass,pass,9.922000000020489,9.65943876397796
+77,Unipath,grammar-based: expression,pass,test_fail,pass,test_fail,10.062999999965541,7.667637731996365
+78,Unipath,grammar-based: statement,pass,test_fail,pass,test_fail,9.75,9.194516722986009
+79,Unipath,grammar-based: statement,pass,test_fail,pass,test_fail,9.843999999924563,9.282044580962975
+80,Unipath,grammar-based: expression,pass,test_fail,pass,test_fail,9.312999999965541,7.1523669209564105
+81,Unipath,grammar-based: expression,pass,test_fail,pass,test_fail,9.547000000020489,7.262995854020119
+82,Unipath,grammar-based: block,pass,pass,pass,pass,9.452999999979511,8.686231365019921
+83,Unipath,grammar-based: expression,pass,pass,pass,pass,9.937000000034459,8.956016244017519
+84,Unipath,grammar-based: block,pass,test_fail,pass,test_fail,9.469000000040978,8.967858566029463
+85,algorithms,Random Span Completion,pass,test_fail,pass,test_fail,16.57799999997951,8.365474789985456
+86,algorithms,Random Span Completion,pass,test_fail,pass,test_fail,17.04700000002049,8.196859641000628
+87,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,16.95299999997951,17.125078796991147
+88,algorithms,grammar-based: expression,pass,pass,pass,pass,17.25,16.771379754994996
+89,algorithms,grammar-based: expression,pass,pass,pass,pass,16.51500000001397,16.06548730796203
+90,algorithms,grammar-based: block,pass,pass,pass,pass,16.093999999924563,15.77552459097933
+91,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,15.358999999938533,6.1817837600247
+92,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,15.39000000001397,15.553561941022053
+93,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,15.812999999965541,17.51755749899894
+94,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,15.047000000020489,15.251130477990955
+95,algorithms,grammar-based: statement,pass,pass,pass,pass,15.266000000061467,15.189408776001073
+96,algorithms,grammar-based: statement,pass,test_fail,pass,test_fail,14.890999999945052,6.182289899035823
+97,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,14.938000000081956,14.682784315024037
+98,algorithms,grammar-based: block,pass,pass,pass,pass,15.15700000000652,14.477489744022023
+99,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,15.094000000040978,14.515474702988286
+100,algorithms,grammar-based: expression,pass,pass,pass,pass,15.078000000095926,14.60041957104113
+101,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,15.141000000061467,14.761436155007686
+102,algorithms,grammar-based: expression,pass,test_fail,pass,test_fail,14.936999999918044,6.405051399022341
+103,algorithms,grammar-based: statement,pass,test_fail,pass,test_fail,15.077999999979511,14.779404131986666
+104,algorithms,grammar-based: block,pass,test_fail,pass,test_fail,16.01500000001397,6.196666589006782
+105,algorithms,grammar-based: statement,pass,pass,pass,pass,16.57799999997951,14.598188322037458
+106,algorithms,grammar-based: statement,pass,pass,pass,pass,16.20299999997951,14.855941783986054
+107,attrs,Random Span Completion,pass,test_fail,pass,test_fail,52.71900000004098,3.7310359650291502
+108,attrs,grammar-based: statement,pass,test_fail,pass,test_fail,54.45299999997951,5.689805536007043
+109,attrs,grammar-based: block,pass,test_fail,pass,test_fail,51.25,8.790809717960656
+110,attrs,grammar-based: statement,pass,test_fail,pass,test_fail,52.70299999997951,4.493251230975147
+111,attrs,grammar-based: statement,pass,test_fail,pass,test_fail,52.75,4.1811185159604065
+112,attrs,grammar-based: statement,pass,test_fail,pass,test_fail,51.60900000005495,51.36090540298028
+113,attrs,grammar-based: statement,pass,test_fail,pass,test_fail,60.18799999996554,52.61166619102005
+114,attrs,grammar-based: expression,pass,test_fail,pass,test_fail,58.64099999994505,49.88354360201629
+115,attrs,grammar-based: expression,pass,pass,pass,pass,59.5,50.674314407981
+116,attrs,grammar-based: expression,pass,test_fail,pass,test_fail,64.51600000006147,3.8269786830060184
+117,attrs,grammar-based: statement,pass,test_fail,pass,test_fail,63.60999999998603,52.298872105020564
+118,attrs,grammar-based: expression,pass,test_fail,pass,test_fail,62.18700000003446,4.478553118009586
+119,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,12.26500000001397,7.638454416999593
+120,boltons,grammar-based: block,pass,test_fail,pass,test_fail,12.266000000061467,19.687669801991433
+121,boltons,grammar-based: block,pass,test_fail,pass,test_fail,12.077999999979511,11.240411365986802
+122,boltons,grammar-based: block,pass,test_fail,pass,test_fail,12.812999999965541,8.255893067049328
+123,boltons,grammar-based: expression,pass,test_fail,pass,test_fail,13.422000000020489,8.583466618030798
+124,boltons,grammar-based: block,pass,pass,pass,pass,13.125,11.04200940800365
+125,boltons,grammar-based: block,pass,test_fail,pass,test_fail,13.405999999959022,11.017374680028297
+126,boltons,grammar-based: block,pass,pass,pass,pass,12.905999999959022,11.155724360025488
+127,boltons,grammar-based: block,pass,test_fail,pass,test_fail,13.21799999999348,11.600616809970234
+128,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,11.797000000020489,13.265481842041481
+129,boltons,grammar-based: block,pass,test_fail,pass,test_fail,11.734000000054948,13.118065222981386
+130,boltons,grammar-based: expression,pass,test_fail,pass,test_fail,11.375,13.294906403985806
+131,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,11.438000000081956,13.212898962956388
+132,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,11.60999999998603,9.603174099989701
+133,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,11.719000000040978,10.356339169025887
+134,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,12.171999999904074,12.788264093978796
+135,boltons,grammar-based: expression,pass,pass,pass,pass,12.702999999979511,13.24013842997374
+136,boltons,grammar-based: statement,pass,test_fail,pass,test_fail,13.125,12.647732569021173
+137,cacheout,grammar-based: expression,pass,test_fail,pass,test_fail,8.312000000034459,7.425163734005764
+138,cacheout,grammar-based: expression,pass,pass,pass,pass,8.172000000020489,6.938056087994482
+139,cacheout,grammar-based: statement,pass,test_fail,pass,test_fail,8.405999999959022,7.1485744579695165
+140,cacheout,grammar-based: statement,pass,test_fail,pass,test_fail,8.35999999998603,7.867679420975037
+141,cacheout,grammar-based: statement,pass,test_fail,pass,test_fail,8.422000000020489,7.049725437012967
+142,cacheout,grammar-based: expression,pass,test_fail,pass,test_fail,7.781000000075437,7.123644100967795
+143,cacheout,grammar-based: statement,pass,test_fail,pass,test_fail,7.937000000034459,7.082389255054295
+144,cacheout,grammar-based: statement,pass,test_fail,pass,test_fail,7.952999999979511,7.83281919604633
+145,cacheout,grammar-based: expression,pass,pass,pass,pass,7.890999999945052,6.489212037995458
+146,cacheout,grammar-based: block,pass,pass,pass,pass,8.672000000020489,7.081926972023211
+147,cacheout,grammar-based: block,pass,test_fail,pass,test_fail,8.405999999959022,7.468273468024563
+148,cacheout,grammar-based: expression,pass,test_fail,pass,test_fail,8.733999999938533,7.709230358013883
+149,cacheout,grammar-based: expression,pass,pass,pass,pass,8.280999999959022,7.328884759976063
+150,compressed_rtf,Random Single-line Completion,pass,test_fail,pass,test_fail,3.952999999979511,3.1517494689906016
+151,compressed_rtf,Random Single-line Completion,pass,test_fail,pass,test_fail,4.203000000095926,3.239320719963871
+152,compressed_rtf,Random Single-line Completion,pass,test_fail,pass,test_fail,4.984000000054948,3.7639132749754936
+153,compressed_rtf,Random Multi-line Completion,pass,test_fail,pass,test_fail,4.327999999979511,3.233601922984235
+154,compressed_rtf,Random Span Completion,pass,pass,pass,pass,4.35999999998603,3.3257296070223674
+155,compressed_rtf,Random Span Completion,pass,test_fail,pass,test_fail,4.437000000034459,3.340036940004211
+156,compressed_rtf,Random Span Completion,pass,test_fail,pass,test_fail,5.030999999959022,3.2828522229683585
+157,compressed_rtf,grammar-based: block,pass,timeout,pass,timeout,4.530999999959022,241.93036641401704
+158,compressed_rtf,grammar-based: expression,pass,pass,pass,pass,4.422000000020489,3.0475756459636614
+159,compressed_rtf,grammar-based: expression,pass,pass,pass,pass,4.359000000054948,3.0307359229773283
+160,compressed_rtf,grammar-based: statement,pass,test_fail,pass,test_fail,4.327999999979511,2.974730501009617
+161,compressed_rtf,grammar-based: expression,pass,pass,pass,pass,4.140999999945052,3.1168176739593036
+162,compressed_rtf,grammar-based: statement,pass,test_fail,pass,test_fail,4.23499999998603,3.145273236965295
+163,compressed_rtf,grammar-based: block,pass,test_fail,pass,test_fail,4.25,3.317051623016596
+164,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.343999999924563,2.8329268770175986
+165,compressed_rtf,grammar-based: block,pass,test_fail,pass,test_fail,5.437999999965541,3.222802084987052
+166,compressed_rtf,grammar-based: statement,pass,test_fail,pass,test_fail,5.032000000006519,3.2317459819605574
+167,compressed_rtf,grammar-based: block,pass,test_fail,pass,test_fail,5.0,3.587660107994452
+168,compressed_rtf,grammar-based: statement,pass,test_fail,pass,test_fail,5.155999999959022,3.4300532009801827
+169,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,5.093999999924563,3.4711326499818824
+170,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,5.5,3.0662198800127953
+171,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.702999999979511,3.895272426016163
+172,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,5.092999999993481,3.184137582022231
+173,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.577999999979511,3.6634128849836998
+174,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.625,3.8333339540404268
+175,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.75,3.4724052880192176
+176,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.781000000075437,3.362897242011968
+177,compressed_rtf,grammar-based: block,pass,test_fail,pass,test_fail,4.969000000040978,3.510391568997875
+178,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.782000000006519,3.151465392962564
+179,compressed_rtf,grammar-based: block,pass,test_fail,pass,test_fail,5.016000000061467,3.5469531010021456
+180,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,5.079000000027008,3.0781972580007277
+181,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,5.047000000020489,3.337222111003939
+182,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.702999999979511,3.2532696700072847
+183,compressed_rtf,grammar-based: block,pass,pass,pass,pass,4.920999999972992,3.249831467983313
+184,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.967999999993481,2.912082076014485
+185,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.75,3.386904837039765
+186,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.420999999972992,3.7527969049988315
+187,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.5,3.745853108004667
+188,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.297000000020489,3.8451367099769413
+189,compressed_rtf,grammar-based: expression,pass,test_fail,pass,test_fail,4.313000000081956,3.8495918639819138
+190,css-html-js-minify,Random Multi-line Completion,pass,pass,pass,pass,4.35999999998603,3.4616234849672765
+191,css-html-js-minify,Random Span Completion,pass,test_fail,pass,test_fail,4.155999999959022,3.513578890997451
+192,css-html-js-minify,grammar-based: expression,pass,pass,pass,pass,4.032000000006519,3.559309190022759
+193,css-html-js-minify,grammar-based: statement,pass,pass,pass,pass,3.969000000040978,3.7341682050027885
+194,css-html-js-minify,grammar-based: expression,pass,pass,pass,pass,4.109000000054948,3.807692754024174
+195,css-html-js-minify,grammar-based: statement,pass,pass,pass,pass,4.155999999959022,4.034990076965187
+196,css-html-js-minify,grammar-based: expression,pass,pass,pass,pass,4.094000000040978,4.053584898007102
+197,css-html-js-minify,grammar-based: statement,pass,pass,pass,pass,4.187999999965541,4.401515953999478
+198,css-html-js-minify,grammar-based: expression,pass,pass,pass,pass,4.297000000020489,4.248232421989087
+199,css-html-js-minify,grammar-based: block,pass,pass,pass,pass,4.202999999979511,4.0992175890132785
+200,css-html-js-minify,grammar-based: block,pass,test_fail,pass,test_fail,3.812999999965541,3.9221463220310397
+201,css-html-js-minify,grammar-based: expression,pass,pass,pass,pass,4.155999999959022,3.629688323009759
+202,css-html-js-minify,grammar-based: statement,pass,pass,pass,pass,4.14000000001397,3.3041708749951795
+203,csv-diff,Random Single-line Completion,pass,test_fail,pass,test_fail,7.047000000020489,7.638454894011375
+204,csv-diff,Random Multi-line Completion,pass,test_fail,pass,test_fail,6.781000000075437,6.798125236993656
+205,csv-diff,grammar-based: statement,pass,test_fail,pass,test_fail,6.812000000034459,6.657629812019877
+206,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,6.76500000001397,8.044831027043983
+207,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,6.704000000027008,7.439762590976898
+208,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,6.765999999945052,6.2237214029883035
+209,csv-diff,grammar-based: statement,pass,test_fail,pass,test_fail,7.827999999979511,7.5555949860136025
+210,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,7.858999999938533,6.160536035022233
+211,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.827999999979511,6.451503954944201
+212,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.594000000040978,6.799665794998873
+213,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.827999999979511,6.705507269012742
+214,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,7.359000000054948,6.358635841985233
+215,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.204000000027008,7.211008868005592
+216,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,7.313000000081956,7.56906925898511
+217,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.327999999979511,6.746521027991548
+218,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.155999999959022,7.5300684940302745
+219,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,6.937000000034459,7.542732290981803
+220,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,6.937999999965541,7.2763316839700565
+221,csv-diff,grammar-based: expression,pass,pass,pass,pass,7.422000000020489,7.028459128050599
+222,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,7.593999999924563,7.3513604659819975
+223,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,7.60999999998603,7.528924091020599
+224,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.375,7.05138146498939
+225,csv-diff,grammar-based: statement,pass,test_fail,pass,test_fail,7.187999999965541,6.861897549009882
+226,csv-diff,grammar-based: block,pass,test_fail,pass,test_fail,7.60999999998603,6.335816428996623
+227,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.467999999993481,7.095905294001568
+228,csv-diff,grammar-based: expression,pass,test_fail,pass,test_fail,7.172000000020489,8.799896894022822
+229,csvkit,Random Single-line Completion,pass,test_fail,pass,test_fail,9.01500000001397,6.9611691440222785
+230,csvkit,Random Multi-line Completion,pass,test_fail,pass,test_fail,8.813000000081956,9.6825494269724
+231,csvkit,Random Span Completion,pass,test_fail,pass,test_fail,8.922000000020489,9.167912365985103
+232,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,8.625,8.734898464987054
+233,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,8.343999999924563,9.361620373965707
+234,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,8.405999999959022,9.404116343997885
+235,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,8.077999999979511,8.74439293902833
+236,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,8.204000000027008,9.239049274008721
+237,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.969000000040978,10.849761837976985
+238,csvkit,grammar-based: block,pass,pass,pass,pass,7.98499999998603,9.284005380992312
+239,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.687000000034459,9.691267993999645
+240,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,7.76500000001397,10.055360839993227
+241,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.797000000020489,10.133551733975764
+242,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.670999999972992,10.076598086045124
+243,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,7.983999999938533,9.347544721968006
+244,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.812000000034459,9.719709917961154
+245,csvkit,grammar-based: expression,pass,pass,pass,pass,8.171999999904074,9.540286395000294
+246,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,8.063000000081956,9.22359723498812
+247,csvkit,grammar-based: expression,pass,pass,pass,pass,7.983999999938533,9.438780841999687
+248,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,8.141000000061467,8.88947813800769
+249,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.829000000027008,9.398678984027356
+250,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.85999999998603,7.067952995013911
+251,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,7.688000000081956,8.776441739988513
+252,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.280999999959022,8.234872971021105
+253,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.907000000006519,7.796856660977937
+254,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.405999999959022,8.441922963014804
+255,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,7.577999999979511,7.794064168003388
+256,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.594000000040978,7.975378361996263
+257,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.516000000061467,7.895068071957212
+258,csvkit,grammar-based: block,pass,pass,pass,pass,7.530999999959022,8.186378857004456
+259,csvkit,grammar-based: statement,pass,test_fail,pass,test_fail,7.547000000020489,8.56368886004202
+260,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.592999999993481,8.89545834803721
+261,csvkit,grammar-based: expression,pass,pass,pass,pass,7.64000000001397,8.638180996000301
+262,csvkit,grammar-based: block,pass,test_fail,pass,test_fail,7.577999999979511,8.613531698996667
+263,csvkit,grammar-based: expression,pass,test_fail,pass,test_fail,8.922000000020489,8.370723694039043
+264,datetime_truncate,Random Single-line Completion,pass,test_fail,pass,test_fail,3.281000000075437,3.028951004962437
+265,datetime_truncate,Random Span Completion,pass,test_fail,pass,test_fail,3.672000000020489,3.1538969890098087
+266,datetime_truncate,Random Span Completion,pass,test_fail,pass,test_fail,3.702999999979511,3.117437177046668
+267,datetime_truncate,grammar-based: expression,pass,pass,pass,pass,4.030999999959022,3.1201262929826044
+268,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,4.0,3.0362650280003436
+269,datetime_truncate,grammar-based: block,pass,test_fail,pass,test_fail,4.01500000001397,3.094256006006617
+270,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,4.062999999965541,3.531080610002391
+271,datetime_truncate,grammar-based: expression,pass,pass,pass,pass,4.015999999945052,2.9655625370214693
+272,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,4.0,3.0387208930333145
+273,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,3.952999999979511,3.0485999730299227
+274,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,3.9380000000819564,3.216692026006058
+275,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,3.827999999979511,3.203174750029575
+276,datetime_truncate,grammar-based: expression,pass,test_fail,pass,test_fail,3.702999999979511,3.2147861610283144
+277,datetime_truncate,grammar-based: expression,pass,pass,pass,pass,3.797000000020489,3.2577924790093675
+278,dict2css,grammar-based: expression,pass,pass,pass,pass,7.594000000040978,7.772950119979214
+279,dict2css,grammar-based: expression,pass,pass,pass,pass,7.625,7.5485282149747945
+280,dict2css,grammar-based: block,pass,test_fail,pass,test_fail,7.702999999979511,8.69004566501826
+281,dict2css,grammar-based: statement,pass,pass,pass,pass,7.155999999959022,8.213361833011732
+282,dict2css,grammar-based: expression,pass,pass,pass,pass,7.062000000034459,7.835698254988529
+283,dict2css,grammar-based: statement,pass,pass,pass,pass,7.14000000001397,7.59102732501924
+284,dict2css,grammar-based: statement,pass,pass,pass,pass,6.842999999993481,7.715531472000293
+285,dict2css,grammar-based: expression,pass,pass,pass,pass,6.85999999998603,7.01800997403916
+286,dict2css,grammar-based: expression,pass,pass,pass,pass,6.797000000020489,6.986164802976418
+287,dict2css,grammar-based: block,pass,test_fail,pass,test_fail,6.766000000061467,7.123306446999777
+288,dict2css,grammar-based: block,pass,test_fail,pass,test_fail,6.437000000034459,7.503628297999967
+289,dict2css,grammar-based: expression,pass,pass,pass,pass,6.344000000040978,6.569125696027186
+290,dict2css,grammar-based: expression,pass,test_fail,pass,test_fail,6.813000000081956,7.14122398395557
+291,dict2css,grammar-based: expression,pass,test_fail,pass,test_fail,6.812000000034459,7.1206817520433106
+292,dict2css,grammar-based: statement,pass,test_fail,pass,test_fail,6.592999999993481,7.845293111982755
+293,dict2css,grammar-based: expression,pass,pass,pass,pass,6.827999999979511,6.259688859980088
+294,dict2css,grammar-based: statement,pass,test_fail,pass,test_fail,6.375,6.310068609018344
+295,dpath-python,Random Multi-line Completion,pass,test_fail,pass,test_fail,106.625,8.330032101017423
+296,dpath-python,grammar-based: block,pass,timeout,pass,timeout,109.25,241.52588823297992
+297,dpath-python,grammar-based: expression,pass,test_fail,pass,test_fail,115.35999999998603,112.7919237560127
+298,dpath-python,grammar-based: expression,pass,test_fail,pass,test_fail,106.76599999994505,8.095071445975918
+299,dpath-python,grammar-based: block,pass,test_fail,pass,test_fail,106.96900000004098,8.067407727998216
+300,dpath-python,grammar-based: statement,pass,test_fail,pass,test_fail,123.09299999999348,111.46117731899722
+301,dpath-python,grammar-based: statement,pass,test_fail,pass,test_fail,109.59299999999348,6.365202215965837
+302,dpath-python,grammar-based: block,pass,pass,pass,pass,113.67099999997299,113.6663071019575
+303,dpath-python,grammar-based: block,pass,pass,pass,pass,109.64099999994505,108.63524788297946
+304,dpath-python,grammar-based: block,pass,test_fail,pass,test_fail,99.60900000005495,6.737169741012622
+305,dpath-python,grammar-based: block,pass,test_fail,pass,test_fail,105.32799999997951,106.21111617702991
+306,dpath-python,grammar-based: block,pass,pass,pass,pass,103.98499999998603,104.62816528696567
+307,dpath-python,grammar-based: expression,pass,timeout,pass,timeout,122.42099999997299,241.56367900100304
+308,easyargs,Random Single-line Completion,pass,pass,pass,pass,3.8589999999385327,2.7426527090137824
+309,easyargs,Random Multi-line Completion,pass,test_fail,pass,test_fail,3.85999999998603,2.762960670981556
+310,easyargs,Random Span Completion,pass,test_fail,pass,test_fail,4.01500000001397,2.662043365999125
+311,easyargs,Random Span Completion,pass,pass,pass,pass,3.937000000034459,2.594425610965118
+312,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,3.890999999945052,2.6808514200383797
+313,easyargs,grammar-based: statement,pass,pass,pass,pass,4.047000000020489,2.6488418969674967
+314,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,4.077999999979511,2.698563985992223
+315,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,4.469000000040978,2.765371752961073
+316,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,5.359000000054948,2.9073035559849814
+317,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,5.25,2.8948683940107003
+318,easyargs,grammar-based: statement,pass,test_fail,pass,test_fail,5.297000000020489,2.7872400319902226
+319,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,4.89000000001397,2.922858937003184
+320,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,4.234000000054948,2.7529066219576634
+321,easyargs,grammar-based: expression,pass,pass,pass,pass,3.922000000020489,2.636412018968258
+322,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,3.8119999999180436,2.78803226002492
+323,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,3.7339999999385327,2.702570588036906
+324,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,3.812999999965541,2.8213282749638893
+325,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,3.702999999979511,2.8644753720145673
+326,easyargs,grammar-based: statement,pass,test_fail,pass,test_fail,3.734000000054948,2.862242856004741
+327,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,3.75,2.926774029037915
+328,easyargs,grammar-based: block,pass,pass,pass,pass,3.7339999999385327,2.7124786259955727
+329,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,3.6570000000065193,2.9204563839593902
+330,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,3.6570000000065193,2.8485520529793575
+331,easyargs,grammar-based: block,pass,test_fail,pass,test_fail,4.030999999959022,3.0634166409727186
+332,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,4.047000000020489,3.2000626960070804
+333,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,4.061999999918044,3.5451740040443838
+334,easyargs,grammar-based: expression,pass,test_fail,pass,test_fail,4.10999999998603,3.4190972739597782
+335,easyargs,grammar-based: statement,pass,test_fail,pass,test_fail,4.109000000054948,2.8834837999893352
+336,easyargs,grammar-based: expression,pass,pass,pass,pass,3.75,2.7687625289545394
+337,edx-lint,Random Single-line Completion,pass,pass,pass,pass,17.655999999959022,16.515271515003406
+338,edx-lint,Random Single-line Completion,pass,test_fail,pass,test_fail,17.95400000002701,16.622707495989744
+339,edx-lint,Random Multi-line Completion,pass,test_fail,pass,test_fail,17.89000000001397,7.158988353039604
+340,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,17.890999999945052,15.478455939970445
+341,edx-lint,grammar-based: statement,pass,test_fail,pass,test_fail,18.20299999997951,6.120873695006594
+342,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.56299999996554,15.20204649103107
+343,edx-lint,grammar-based: statement,pass,test_fail,pass,test_fail,19.780999999959022,16.01514341199072
+344,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.219000000040978,15.437861940008588
+345,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,19.31299999996554,15.235046008019708
+346,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.73499999998603,16.23545184597606
+347,edx-lint,grammar-based: block,pass,pass,pass,pass,19.10999999998603,16.7139056790038
+348,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,18.828000000095926,7.23663131298963
+349,edx-lint,grammar-based: statement,pass,test_fail,pass,test_fail,18.75,17.32048285898054
+350,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.06200000003446,6.424919850949664
+351,edx-lint,grammar-based: statement,pass,test_fail,pass,test_fail,18.59299999999348,6.705204755009618
+352,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,18.891000000061467,17.366119423008058
+353,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,18.70299999997951,17.251404305978213
+354,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,18.51500000001397,17.693184981006198
+355,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,19.030999999959022,7.319326517987065
+356,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,18.688000000081956,7.649622798024211
+357,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,18.07799999997951,17.236158780986443
+358,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,18.5,17.984647863020655
+359,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,17.938000000081956,17.433323634031694
+360,edx-lint,grammar-based: statement,pass,test_fail,pass,test_fail,17.82799999997951,7.3220170180429704
+361,edx-lint,grammar-based: expression,pass,pass,pass,pass,18.233999999938533,16.72725856001489
+362,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,19.343999999924563,17.60125790903112
+363,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.56200000003446,8.098075376008637
+364,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.358999999938533,8.452807458001189
+365,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.34299999999348,20.42433019395685
+366,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.32799999997951,20.460958198993467
+367,edx-lint,grammar-based: statement,pass,test_fail,pass,test_fail,19.31299999996554,8.968722496996634
+368,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,18.828000000095926,20.505539906036574
+369,edx-lint,grammar-based: expression,pass,test_fail,pass,test_fail,19.29700000002049,20.449804723029956
+370,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.391000000061467,20.42785191698931
+371,edx-lint,grammar-based: block,pass,test_fail,pass,test_fail,19.42200000002049,17.870235852955375
+372,eip712,grammar-based: expression,pass,pass,pass,pass,8.625,7.669850705948193
+373,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,8.281000000075437,7.626451506977901
+374,eip712,grammar-based: block,pass,pass,pass,pass,7.468999999924563,7.509333845053334
+375,eip712,grammar-based: expression,pass,pass,pass,pass,7.905999999959022,7.524535240023397
+376,eip712,grammar-based: block,pass,pass,pass,pass,7.920999999972992,6.578150884015486
+377,eip712,grammar-based: block,pass,test_fail,pass,test_fail,8.281000000075437,7.60785243997816
+378,eip712,grammar-based: expression,pass,pass,pass,pass,8.09299999999348,7.070851747994311
+379,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.03200000000652,7.549166218028404
+380,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,8.155999999959022,5.257046732003801
+381,eip712,grammar-based: block,pass,test_fail,pass,test_fail,8.10999999998603,7.274939894035924
+382,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,8.202999999979511,7.6472813580185175
+383,eip712,grammar-based: block,pass,pass,pass,pass,8.311999999918044,7.644117101968732
+384,eip712,grammar-based: block,pass,pass,pass,pass,8.718999999924563,7.274169383046683
+385,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.295999999972992,3.478121180960443
+386,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.577999999979511,8.079865364998113
+387,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,8.406000000075437,4.755836029944476
+388,eip712,grammar-based: block,pass,pass,pass,pass,8.344000000040978,7.787829320994206
+389,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,8.28200000000652,5.696331040002406
+390,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.141000000061467,7.883968024980277
+391,eip712,grammar-based: block,pass,test_fail,pass,test_fail,8.125,3.980382103007287
+392,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.311999999918044,7.824743674020283
+393,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.093999999924563,7.683156144048553
+394,eip712,grammar-based: expression,pass,test_fail,pass,test_fail,8.671999999904074,5.346280266006943
+395,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,8.672000000020489,4.746914604969788
+396,eip712,grammar-based: statement,pass,test_fail,pass,test_fail,9.218999999924563,7.5341765860212035
+397,eml_parser,Random Multi-line Completion,pass,test_fail,pass,test_fail,13.26500000001397,7.763105907011777
+398,eml_parser,Random Multi-line Completion,pass,test_fail,pass,test_fail,12.516000000061467,7.93831695598783
+399,eml_parser,Random Span Completion,pass,test_fail,pass,test_fail,13.077999999979511,7.743288868980017
+400,eml_parser,Random Span Completion,pass,test_fail,pass,test_fail,12.60999999998603,8.07566815201426
+401,eml_parser,grammar-based: block,pass,test_fail,pass,test_fail,12.905999999959022,12.149096212000586
+402,eml_parser,grammar-based: block,pass,pass,pass,pass,12.437000000034459,11.659419296018314
+403,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,12.515999999945052,11.129924106004182
+404,eml_parser,grammar-based: statement,pass,pass,pass,pass,12.78200000000652,11.813723964965902
+405,eml_parser,grammar-based: block,pass,pass,pass,pass,12.76500000001397,11.34002766496269
+406,eml_parser,grammar-based: statement,pass,pass,pass,pass,12.453000000095926,11.159804483002517
+407,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,12.516000000061467,6.839709767024033
+408,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,12.186999999918044,9.9012731279945
+409,eml_parser,grammar-based: statement,pass,test_fail,pass,test_fail,12.109000000054948,10.916045387974009
+410,eml_parser,grammar-based: block,pass,test_fail,pass,test_fail,11.85999999998603,11.292795168003067
+411,eml_parser,grammar-based: expression,pass,pass,pass,pass,11.85999999998603,11.699555722996593
+412,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,12.0,7.014902821974829
+413,eml_parser,grammar-based: expression,pass,pass,pass,pass,11.640999999945052,11.316924860992003
+414,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,11.266000000061467,9.434340610983782
+415,eml_parser,grammar-based: statement,pass,test_fail,pass,test_fail,12.061999999918044,10.328469570027664
+416,eml_parser,grammar-based: block,pass,test_fail,pass,test_fail,12.09299999999348,11.30495838803472
+417,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,11.687000000034459,11.0703683780157
+418,eml_parser,grammar-based: block,pass,test_fail,pass,test_fail,11.530999999959022,10.916407053009607
+419,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,11.5,9.714591017982457
+420,eml_parser,grammar-based: expression,pass,test_fail,pass,test_fail,11.812999999965541,9.736869102984201
+421,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,9.891000000061467,9.330514769011643
+422,fastkml,grammar-based: block,pass,test_fail,pass,test_fail,9.266000000061467,8.84803561604349
+423,fastkml,grammar-based: expression,pass,pass,pass,pass,9.454000000027008,8.544091299001593
+424,fastkml,grammar-based: expression,pass,pass,pass,pass,9.827999999979511,8.599993869022
+425,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,9.875,12.12448235496413
+426,fastkml,grammar-based: statement,pass,pass,pass,pass,10.10999999998603,8.702812456001993
+427,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,10.593999999924563,8.822486913995817
+428,fastkml,grammar-based: block,pass,test_fail,pass,test_fail,10.593999999924563,11.456184869050048
+429,fastkml,grammar-based: expression,pass,test_fail,pass,test_fail,10.75,9.042470287007745
+430,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,10.10999999998603,8.69768916600151
+431,fastkml,grammar-based: statement,pass,pass,pass,pass,10.5,9.813380300009158
+432,fastkml,grammar-based: block,pass,test_fail,pass,test_fail,10.420999999972992,9.944577048008796
+433,fastkml,grammar-based: statement,pass,pass,pass,pass,10.0,9.72384738503024
+434,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,10.125,10.126865517988335
+435,fastkml,grammar-based: block,pass,pass,pass,pass,10.280999999959022,9.28277272899868
+436,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,10.422000000020489,12.222743311955128
+437,fastkml,grammar-based: block,pass,test_fail,pass,test_fail,10.625,9.677408552030101
+438,fastkml,grammar-based: block,pass,test_fail,pass,test_fail,10.329000000027008,17.01488532399526
+439,fastkml,grammar-based: expression,pass,test_fail,pass,test_fail,10.562000000034459,9.270378999994136
+440,fastkml,grammar-based: statement,pass,test_fail,pass,test_fail,10.547000000020489,9.353202275990043
+441,fastkml,grammar-based: expression,pass,test_fail,pass,test_fail,10.703000000095926,12.361784463981166
+442,geopy,Random Single-line Completion,pass,pass,pass,pass,13.937000000034459,13.31444633495994
+443,geopy,Random Span Completion,pass,test_fail,pass,test_fail,13.733999999938533,4.748194020008668
+444,geopy,Random Span Completion,pass,test_fail,pass,test_fail,13.359000000054948,4.970689648005646
+445,geopy,grammar-based: expression,pass,test_fail,pass,test_fail,13.562999999965541,4.4050390850170515
+446,geopy,grammar-based: expression,pass,pass,pass,pass,12.734000000054948,12.356873390031978
+447,geopy,grammar-based: block,pass,test_fail,pass,test_fail,13.39000000001397,13.62853563396493
+448,geopy,grammar-based: expression,pass,test_fail,pass,test_fail,12.609000000054948,12.103814222034998
+449,geopy,grammar-based: block,pass,pass,pass,pass,12.219000000040978,12.757001827994827
+450,geopy,grammar-based: statement,pass,pass,pass,pass,12.358999999938533,12.095170560001861
+451,geopy,grammar-based: block,pass,test_fail,pass,test_fail,13.327999999979511,12.81745100702392
+452,geopy,grammar-based: statement,pass,pass,pass,pass,13.03200000000652,12.979593904979993
+453,geopy,grammar-based: expression,pass,pass,pass,pass,12.530999999959022,12.640822842018679
+454,geopy,grammar-based: expression,pass,pass,pass,pass,13.562999999965541,13.103857079986483
+455,geopy,grammar-based: block,pass,test_fail,pass,test_fail,12.608999999938533,13.15453795203939
+456,geopy,grammar-based: statement,pass,test_fail,pass,test_fail,13.797000000020489,4.372767619031947
+457,geopy,grammar-based: statement,pass,pass,pass,pass,13.984000000054948,13.070805097988341
+458,geopy,grammar-based: expression,pass,pass,pass,pass,14.25,13.055313112970907
+459,geopy,grammar-based: statement,pass,test_fail,pass,test_fail,13.672000000020489,4.489426877989899
+460,geopy,grammar-based: block,pass,test_fail,pass,test_fail,14.530999999959022,4.22725823399378
+461,geopy,grammar-based: statement,pass,test_fail,pass,test_fail,14.35999999998603,8.280202382011339
+462,geopy,grammar-based: statement,pass,test_fail,pass,test_fail,13.952999999979511,13.42570123099722
+463,gruut,Random Single-line Completion,pass,pass,pass,pass,15.922000000020489,16.920928434992675
+464,gruut,Random Single-line Completion,pass,pass,pass,pass,15.546999999904074,16.25222131703049
+465,gruut,Random Single-line Completion,pass,pass,pass,pass,15.795999999972992,15.926713711000048
+466,gruut,Random Multi-line Completion,pass,pass,pass,pass,15.65700000000652,16.172938745992724
+467,gruut,Random Multi-line Completion,pass,pass,pass,pass,16.0,16.484274056972936
+468,gruut,Random Multi-line Completion,pass,pass,pass,pass,15.577999999979511,16.277581191039644
+469,gruut,Random Span Completion,pass,pass,pass,pass,15.953000000095926,16.63797661900753
+470,gruut,grammar-based: statement,pass,pass,pass,pass,16.108999999938533,16.27463399997214
+471,gruut,grammar-based: expression,pass,pass,pass,pass,16.25,16.029385877016466
+472,gruut,grammar-based: block,pass,pass,pass,pass,17.375,16.231026513967663
+473,gruut,grammar-based: expression,pass,pass,pass,pass,16.51500000001397,16.54138636001153
+474,gruut,grammar-based: statement,pass,pass,pass,pass,17.125,16.028018882032484
+475,gruut,grammar-based: block,pass,pass,pass,pass,16.890999999945052,15.814297377015464
+476,gruut,grammar-based: statement,pass,pass,pass,pass,17.219000000040978,15.749537842988502
+477,gruut,grammar-based: statement,pass,test_fail,pass,test_fail,16.93799999996554,7.319347632990684
+478,gruut,grammar-based: expression,pass,pass,pass,pass,18.406000000075437,15.779932431993075
+479,gruut,grammar-based: expression,pass,pass,pass,pass,18.17200000002049,15.10215282900026
+480,gruut,grammar-based: expression,pass,pass,pass,pass,17.780999999959022,14.977390485990327
+481,gruut,grammar-based: block,pass,pass,pass,pass,28.030999999959022,15.296580064983573
+482,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,29.359000000054948,6.4929789419984445
+483,gruut,grammar-based: expression,pass,pass,pass,pass,29.14000000001397,14.833751411002595
+484,gruut,grammar-based: statement,pass,pass,pass,pass,20.530999999959022,14.690950832038652
+485,gruut,grammar-based: block,pass,pass,pass,pass,19.42200000002049,15.229437870031688
+486,gruut,grammar-based: statement,pass,pass,pass,pass,17.67200000002049,15.16821026604157
+487,gruut,grammar-based: expression,pass,pass,pass,pass,16.92200000002049,15.452793948003091
+488,gruut,grammar-based: statement,pass,pass,pass,pass,32.21899999992456,15.631769340950996
+489,gruut,grammar-based: expression,pass,pass,pass,pass,32.59399999992456,15.738158060004935
+490,gruut,grammar-based: expression,pass,pass,pass,pass,33.64099999994505,15.988014656002633
+491,gruut,grammar-based: expression,pass,pass,pass,pass,33.64099999994505,16.203337838989682
+492,gruut,grammar-based: block,pass,pass,pass,pass,33.375,16.053676659008488
+493,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,33.68799999996554,11.474024375027511
+494,gruut,grammar-based: block,pass,pass,pass,pass,17.0,16.64967944798991
+495,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,17.0,3.102232100965921
+496,gruut,grammar-based: statement,pass,pass,pass,pass,26.06200000003446,16.229565206973348
+497,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,17.781000000075437,2.9880510149523616
+498,gruut,grammar-based: block,pass,test_fail,pass,test_fail,18.141000000061467,16.48555322998436
+499,gruut,grammar-based: block,pass,test_fail,pass,test_fail,15.375,6.847359934006818
+500,gruut,grammar-based: expression,pass,pass,pass,pass,14.78200000000652,16.803800123976544
+501,gruut,grammar-based: statement,pass,pass,pass,pass,14.359000000054948,16.71341475902591
+502,gruut,grammar-based: statement,pass,pass,pass,pass,26.20299999997951,16.327073593973182
+503,gruut,grammar-based: expression,pass,pass,pass,pass,26.07799999997951,16.104286804038566
+504,gruut,grammar-based: expression,pass,pass,pass,pass,18.344000000040978,16.236249950015917
+505,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,19.718999999924563,3.140539502957836
+506,gruut,grammar-based: statement,pass,test_fail,pass,test_fail,18.95299999997951,15.29016189801041
+507,gruut,grammar-based: statement,pass,pass,pass,pass,19.68799999996554,15.626382569025736
+508,gruut,grammar-based: expression,pass,pass,pass,pass,16.45299999997951,15.297070977976546
+509,gruut,grammar-based: expression,pass,pass,pass,pass,16.04700000002049,15.734300128009636
+510,gruut,grammar-based: statement,pass,pass,pass,pass,16.06200000003446,15.825764829001855
+511,gruut,grammar-based: statement,pass,pass,pass,pass,17.594000000040978,15.448201131017413
+512,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,17.31200000003446,2.9176682570250705
+513,gruut,grammar-based: expression,pass,pass,pass,pass,17.094000000040978,16.404437284974847
+514,gruut,grammar-based: block,pass,pass,pass,pass,15.921999999904074,15.896523392992094
+515,gruut,grammar-based: expression,pass,pass,pass,pass,16.25,16.946956863976084
+516,gruut,grammar-based: expression,pass,pass,pass,pass,16.015999999945052,17.121977917966433
+517,gruut,grammar-based: block,pass,pass,pass,pass,15.797000000020489,17.0527825980098
+518,gruut,grammar-based: expression,pass,pass,pass,pass,15.780999999959022,16.50732622796204
+519,gruut,grammar-based: expression,pass,test_fail,pass,test_fail,15.797000000020489,8.334655579994433
+520,gruut,grammar-based: expression,pass,pass,pass,pass,16.42200000002049,16.9239543749718
+521,gruut,grammar-based: expression,pass,pass,pass,pass,16.32799999997951,15.763279299018905
+522,gruut,grammar-based: block,pass,pass,pass,pass,16.48499999998603,15.044550745980814
+523,gruut,grammar-based: block,pass,test_fail,pass,test_fail,17.14000000001397,10.39998845901573
+524,gruut,grammar-based: expression,pass,pass,pass,pass,17.156000000075437,15.00626816204749
+525,gruut,grammar-based: expression,pass,pass,pass,pass,17.14000000001397,14.705287669028621
+526,gruut,grammar-based: statement,pass,test_fail,pass,test_fail,16.54700000002049,15.219630840001628
+527,gruut,grammar-based: expression,pass,pass,pass,pass,16.906000000075437,15.569071017031092
+528,gruut,grammar-based: expression,pass,pass,pass,pass,17.03200000000652,15.18600194301689
+529,gruut,grammar-based: expression,pass,pass,pass,pass,16.18799999996554,15.425679281004705
+530,gruut,grammar-based: expression,pass,pass,pass,pass,15.780999999959022,15.671607292024419
+531,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,8.093999999924563,8.394134333007969
+532,html-to-json,grammar-based: block,test_fail,test_fail,test_fail,test_fail,8.234000000054948,7.043571233050898
+533,html-to-json,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,8.23499999998603,8.952700616966467
+534,html-to-json,grammar-based: block,test_fail,test_fail,test_fail,test_fail,8.515999999945052,10.95580085599795
+535,html-to-json,grammar-based: block,test_fail,test_fail,test_fail,test_fail,8.812000000034459,10.112420124991331
+536,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.5,9.32957866200013
+537,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.73499999998603,8.754184214980341
+538,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.702999999979511,10.397860901022796
+539,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.64000000001397,8.30404171400005
+540,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.375,6.813592777005397
+541,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.312999999965541,9.00928770203609
+542,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,10.125,6.691344414022751
+543,html-to-json,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,9.469000000040978,8.901042265002616
+544,imageio,Random Single-line Completion,pass,pass,pass,pass,34.14100000006147,33.67890618101228
+545,imageio,Random Span Completion,pass,test_fail,pass,test_fail,34.48400000005495,4.3824793780222535
+546,imageio,grammar-based: block,pass,pass,pass,pass,33.92200000002049,30.798230456013698
+547,imageio,grammar-based: expression,pass,pass,pass,pass,33.18700000003446,30.970063527987804
+548,imageio,grammar-based: block,pass,pass,pass,pass,26.530999999959022,29.449949701025616
+549,imageio,grammar-based: expression,pass,test_fail,pass,test_fail,26.29700000002049,5.389383757021278
+550,imageio,grammar-based: statement,pass,pass,pass,pass,31.07799999997951,26.22628695704043
+551,imageio,grammar-based: statement,pass,test_fail,pass,test_fail,29.67200000002049,26.61272136401385
+552,imageio,grammar-based: block,pass,pass,pass,pass,29.81299999996554,34.81414530402981
+553,imageio,grammar-based: statement,pass,pass,pass,pass,29.79700000002049,32.92367645300692
+554,imageio,grammar-based: block,pass,pass,pass,pass,28.56200000003446,33.73491045302944
+555,imageio,grammar-based: block,pass,test_fail,pass,test_fail,29.781000000075437,33.165336780948564
+556,imageio,grammar-based: expression,pass,test_fail,pass,test_fail,29.81299999996554,4.97896681498969
+557,imageio,grammar-based: statement,pass,test_fail,pass,test_fail,28.70299999997951,4.753482694039121
+558,imageio,grammar-based: block,pass,pass,pass,pass,28.593999999924563,28.26544065203052
+559,imageio,grammar-based: block,pass,test_fail,pass,test_fail,28.43799999996554,25.922918930009473
+560,imageio,grammar-based: block,pass,test_fail,pass,test_fail,28.625,5.202207216003444
+561,imageio,grammar-based: block,pass,pass,pass,pass,27.64000000001397,29.7313532520202
+562,imageio,grammar-based: statement,pass,test_fail,pass,test_fail,29.640999999945052,30.035282074008137
+563,imageio,grammar-based: block,pass,pass,pass,pass,28.75,28.657773347978946
+564,imageio,grammar-based: statement,pass,test_fail,pass,test_fail,30.188000000081956,30.007175756967627
+565,imageio,grammar-based: statement,pass,test_fail,pass,test_fail,28.719000000040978,5.170983302989043
+566,imageio,grammar-based: block,pass,pass,pass,pass,28.70400000002701,26.04415566503303
+567,imageio,grammar-based: block,pass,test_fail,pass,test_fail,28.67200000002049,24.766354675986804
+568,imageio,grammar-based: expression,pass,pass,pass,pass,25.01500000001397,23.655770185985602
+569,imageio,grammar-based: expression,pass,pass,pass,pass,23.890999999945052,20.5995226619998
+570,imageio,grammar-based: expression,pass,pass,pass,pass,24.85999999998603,21.18491529399762
+571,json_repair,Random Single-line Completion,pass,pass,pass,pass,6.890999999945052,6.682213137042709
+572,json_repair,Random Single-line Completion,pass,pass,pass,pass,7.125,6.507088355021551
+573,json_repair,Random Single-line Completion,pass,pass,pass,pass,6.420999999972992,6.27191531698918
+574,json_repair,Random Multi-line Completion,pass,test_fail,pass,test_fail,6.875,6.407632315997034
+575,json_repair,Random Multi-line Completion,pass,test_fail,pass,test_fail,6.937999999965541,6.611559938988648
+576,json_repair,Random Multi-line Completion,pass,pass,pass,pass,7.157000000006519,6.249764734995551
+577,json_repair,Random Span Completion,pass,test_fail,pass,test_fail,10.10999999998603,6.590475429024082
+578,json_repair,Random Span Completion,pass,test_fail,pass,test_fail,9.827999999979511,6.1580751110450365
+579,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,9.797000000020489,6.140472183993552
+580,json_repair,grammar-based: statement,pass,pass,pass,pass,6.984000000054948,6.80919994902797
+581,json_repair,grammar-based: statement,pass,test_fail,pass,test_fail,7.406000000075437,8.031582311028615
+582,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,7.60999999998603,7.367080366995651
+583,json_repair,grammar-based: statement,pass,test_fail,pass,test_fail,7.14000000001397,6.3619386709760875
+584,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,7.390999999945052,6.427888674021233
+585,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.922000000020489,6.318607305991463
+586,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,7.125,6.774734342005104
+587,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,7.297000000020489,6.9896423920290545
+588,json_repair,grammar-based: statement,pass,test_fail,pass,test_fail,6.844000000040978,7.22662443300942
+589,json_repair,grammar-based: statement,pass,test_fail,pass,test_fail,7.187999999965541,6.846656405017711
+590,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,6.827999999979511,9.532967614009976
+591,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.688000000081956,6.897970888996497
+592,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.672000000020489,6.847319166001398
+593,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.765999999945052,6.869828552007675
+594,json_repair,grammar-based: statement,pass,test_fail,pass,test_fail,6.280999999959022,6.341089773981366
+595,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.766000000061467,6.780630226014182
+596,json_repair,grammar-based: statement,pass,test_fail,pass,test_fail,6.967999999993481,5.732972323952708
+597,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.780999999959022,6.59392608597409
+598,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,6.422000000020489,5.547468883974943
+599,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,6.406000000075437,6.2914692490012385
+600,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.51500000001397,6.113122271024622
+601,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,6.405999999959022,5.89801666297717
+602,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,6.438000000081956,5.901960612973198
+603,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.375,6.037871898966841
+604,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,6.905999999959022,6.162136400002055
+605,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,7.172000000020489,6.385635948041454
+606,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,7.625,6.558152954967227
+607,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,8.454000000027008,6.457373459998053
+608,json_repair,grammar-based: expression,pass,test_fail,pass,test_fail,7.921999999904074,6.480634001025464
+609,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,7.984000000054948,5.995881810958963
+610,json_repair,grammar-based: block,pass,test_fail,pass,test_fail,7.781000000075437,6.292037517006975
+611,lxml_html_clean,Random Single-line Completion,test_fail,test_fail,test_fail,test_fail,4.437000000034459,3.2131324679940008
+612,lxml_html_clean,Random Multi-line Completion,test_fail,test_fail,test_fail,test_fail,4.608999999938533,3.3634872150141746
+613,lxml_html_clean,Random Span Completion,test_fail,test_fail,test_fail,test_fail,3.594000000040978,2.951720916025806
+614,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,4.015999999945052,2.9963320789975114
+615,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.64000000001397,2.8783504380262457
+616,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.562000000034459,3.373147008009255
+617,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.64000000001397,2.98094504798064
+618,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.719000000040978,3.030512104043737
+619,lxml_html_clean,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,3.60999999998603,3.3545235070050694
+620,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.5459999999729916,2.919073494966142
+621,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.593999999924563,2.9464965630322695
+622,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.702999999979511,3.1451126360334456
+623,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,4.312000000034459,3.298377407947555
+624,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.905999999959022,3.554653864004649
+625,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.9679999999934807,3.3487099790363573
+626,lxml_html_clean,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,3.8130000000819564,3.1171327750198543
+627,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.9530000000959262,3.2141586520010605
+628,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.8910000000614673,3.7008149239700288
+629,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,4.047000000020489,3.654161163023673
+630,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,4.046999999904074,3.743609822995495
+631,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.655999999959022,3.6829896699637175
+632,lxml_html_clean,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,4.046999999904074,3.556274119997397
+633,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.39000000001397,3.332481667981483
+634,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.5619999999180436,3.429511491965968
+635,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.702999999979511,3.7067306410172023
+636,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.672000000020489,3.687435562023893
+637,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.9530000000959262,3.4824126880266704
+638,lxml_html_clean,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,3.9540000000270084,3.5284644050407223
+639,lxml_html_clean,grammar-based: block,test_fail,test_fail,test_fail,test_fail,3.827999999979511,3.330823951982893
+640,markdown-it-py,Random Multi-line Completion,pass,pass,pass,pass,11.5,11.158810226945207
+641,markdown-it-py,Random Multi-line Completion,pass,test_fail,pass,test_fail,11.65700000000652,11.414061236020643
+642,markdown-it-py,grammar-based: statement,pass,test_fail,pass,test_fail,11.719000000040978,6.160091041994747
+643,markdown-it-py,grammar-based: block,pass,timeout,pass,timeout,11.436999999918044,241.93583815102465
+644,markdown-it-py,grammar-based: statement,pass,pass,pass,pass,11.59299999999348,10.318715882953256
+645,markdown-it-py,grammar-based: expression,pass,test_fail,pass,test_fail,10.98499999998603,7.233454796019942
+646,markdown-it-py,grammar-based: expression,pass,oom,pass,oom,12.10999999998603,91.26439848198788
+647,markdown-it-py,grammar-based: statement,pass,test_fail,pass,test_fail,11.655999999959022,28.22804807004286
+648,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.40700000000652,6.906311734986957
+649,markdown-it-py,grammar-based: statement,pass,pass,pass,pass,12.047000000020489,10.887657532002777
+650,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.844000000040978,28.664503819018137
+651,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.375,12.872603450028691
+652,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.125,8.373980127973482
+653,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.045999999972992,11.19067866599653
+654,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.125,10.79619698197348
+655,markdown-it-py,grammar-based: expression,pass,pass,pass,pass,11.46799999999348,22.086127967981156
+656,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.75,20.398833040962927
+657,markdown-it-py,grammar-based: expression,pass,test_fail,pass,test_fail,11.594000000040978,56.20453213498695
+658,markdown-it-py,grammar-based: block,pass,pass,pass,pass,11.155999999959022,18.93611983000301
+659,markdown-it-py,grammar-based: block,pass,test_fail,pass,test_fail,11.343999999924563,29.481677690986544
+660,markdown-it-py,grammar-based: expression,pass,test_fail,pass,test_fail,11.562000000034459,7.01717936899513
+661,maya,Random Single-line Completion,pass,pass,pass,pass,15.827999999979511,16.93771991203539
+662,maya,grammar-based: statement,pass,test_fail,pass,test_fail,15.859000000054948,5.389077434025239
+663,maya,grammar-based: block,pass,test_fail,pass,test_fail,15.937999999965541,17.370323603972793
+664,maya,grammar-based: expression,pass,pass,pass,pass,15.89000000001397,26.821848221996333
+665,maya,grammar-based: block,pass,test_fail,pass,test_fail,16.25,16.871151345956605
+666,maya,grammar-based: expression,pass,pass,pass,pass,16.20299999997951,16.839556512015406
+667,maya,grammar-based: block,pass,test_fail,pass,test_fail,16.04700000002049,21.339461016003042
+668,maya,grammar-based: statement,pass,test_fail,pass,test_fail,16.280999999959022,5.509946962993126
+669,maya,grammar-based: expression,pass,pass,pass,pass,16.18700000003446,15.572966232022736
+670,maya,grammar-based: block,pass,test_fail,pass,test_fail,17.40700000000652,14.522520533995703
+671,maya,grammar-based: expression,pass,test_fail,pass,test_fail,16.938000000081956,11.748617152974475
+672,maya,grammar-based: block,pass,test_fail,pass,test_fail,17.780999999959022,13.770094998995773
+673,maya,grammar-based: expression,pass,pass,pass,pass,17.858999999938533,15.990694484964479
+674,maya,grammar-based: statement,pass,test_fail,pass,test_fail,17.515999999945052,19.314814930956345
+675,maya,grammar-based: expression,pass,test_fail,pass,test_fail,17.953000000095926,4.992904009995982
+676,mdformat,Random Multi-line Completion,pass,pass,pass,pass,35.43700000003446,33.68606788199395
+677,mdformat,grammar-based: statement,pass,test_fail,pass,test_fail,34.84399999992456,7.336791131994687
+678,mdformat,grammar-based: expression,pass,test_fail,pass,test_fail,34.75,8.668938830960542
+679,mdformat,grammar-based: expression,pass,pass,pass,pass,33.875,34.45672812499106
+680,mdformat,grammar-based: statement,pass,test_fail,pass,test_fail,33.875,13.375330679002218
+681,mdformat,grammar-based: statement,pass,test_fail,pass,test_fail,34.59399999992456,13.174803941976279
+682,mdformat,grammar-based: block,pass,test_fail,pass,test_fail,37.67200000002049,45.36968533898471
+683,moment,Random Span Completion,pass,test_fail,pass,test_fail,6.76500000001397,6.673809916013852
+684,moment,Random Span Completion,pass,test_fail,pass,test_fail,6.858999999938533,6.103675156016834
+685,moment,Random Span Completion,pass,test_fail,pass,test_fail,6.641000000061467,6.722082547028549
+686,moment,grammar-based: statement,pass,test_fail,pass,test_fail,6.672000000020489,7.503941310045775
+687,moment,grammar-based: statement,pass,test_fail,pass,test_fail,6.594000000040978,7.926445607969072
+688,moment,grammar-based: statement,pass,test_fail,pass,test_fail,6.562999999965541,12.99939373700181
+689,moment,grammar-based: block,pass,test_fail,pass,test_fail,6.827999999979511,10.364468907006085
+690,moment,grammar-based: expression,pass,test_fail,pass,test_fail,7.905999999959022,10.635729365982115
+691,moment,grammar-based: block,pass,test_fail,pass,test_fail,7.452999999979511,7.915151304972824
+692,moment,grammar-based: statement,pass,test_fail,pass,test_fail,7.593999999924563,7.397704656992573
+693,moment,grammar-based: expression,pass,pass,pass,pass,7.641000000061467,7.264165994012728
+694,moment,grammar-based: block,pass,test_fail,pass,test_fail,7.655999999959022,8.444078642001841
+695,moment,grammar-based: statement,pass,test_fail,pass,test_fail,8.09299999999348,7.507865227991715
+696,moment,grammar-based: statement,pass,test_fail,pass,test_fail,7.656000000075437,6.6334566620062105
+697,moment,grammar-based: block,pass,test_fail,pass,test_fail,7.656000000075437,7.026457014027983
+698,moment,grammar-based: expression,pass,pass,pass,pass,7.608999999938533,7.077058695955202
+699,moment,grammar-based: expression,pass,pass,pass,pass,8.077999999979511,7.089899990998674
+700,moment,grammar-based: statement,pass,pass,pass,pass,7.547000000020489,6.679301669995766
+701,moment,grammar-based: block,pass,test_fail,pass,test_fail,7.5,7.955881921981927
+702,more-itertools,Random Single-line Completion,pass,pass,pass,pass,8.140999999945052,8.227755820960738
+703,more-itertools,Random Multi-line Completion,pass,pass,pass,pass,8.10999999998603,7.653633226000238
+704,more-itertools,Random Multi-line Completion,pass,test_fail,pass,test_fail,7.765999999945052,3.0088456150260754
+705,more-itertools,Random Multi-line Completion,pass,test_fail,pass,test_fail,8.39000000001397,3.2548999919672497
+706,more-itertools,Random Span Completion,pass,test_fail,pass,test_fail,8.454000000027008,7.257474343990907
+707,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,9.672000000020489,7.952604085963685
+708,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,9.23499999998603,3.041810220980551
+709,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,9.39000000001397,7.698409906995948
+710,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,8.922000000020489,7.450671734986827
+711,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,9.547000000020489,7.5517345879925415
+712,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,9.71799999999348,3.3257244209526107
+713,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,9.25,3.7474241759628057
+714,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.812000000034459,8.349791689019185
+715,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,9.016000000061467,8.50644916499732
+716,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.734000000054948,8.460856502992101
+717,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,8.156000000075437,6.726763655024115
+718,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.266000000061467,7.380776914011221
+719,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.062999999965541,7.6661881289910525
+720,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.078000000095926,8.008276331995148
+721,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,8.108999999938533,8.094662745017558
+722,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,7.811999999918044,8.215820682991762
+723,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.187000000034459,7.6760380159830675
+724,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.905999999959022,8.221820197009947
+725,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.25,8.026351378997788
+726,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.796999999904074,8.109644633950666
+727,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.797000000020489,8.234185895009432
+728,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,7.782000000006519,8.135872942977585
+729,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.780999999959022,7.606270827993285
+730,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,7.765999999945052,7.66552405996481
+731,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.657000000006519,7.359178507991601
+732,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.890999999945052,7.661823780974373
+733,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.625,7.2264896589913405
+734,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.656000000075437,7.562884158978704
+735,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.5,3.196888228994794
+736,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,7.51500000001397,3.170255736040417
+737,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.906000000075437,7.766991739044897
+738,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.515999999945052,7.7342256179545075
+739,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.625,7.7449399319593795
+740,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.546999999904074,3.5302686620270833
+741,more-itertools,grammar-based: block,pass,timeout,pass,timeout,7.468999999924563,241.62397522997344
+742,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.5,3.1012009590049274
+743,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,7.829000000027008,3.1725150360143743
+744,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.515999999945052,9.633749321044888
+745,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.797000000020489,7.099718467972707
+746,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.64000000001397,6.774912187014706
+747,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,7.266000000061467,3.155608469969593
+748,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,7.23499999998603,6.7783419620245695
+749,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.420999999972992,8.227124449040275
+750,more-itertools,grammar-based: block,pass,test_fail,pass,test_fail,8.734000000054948,7.102442705014255
+751,more-itertools,grammar-based: statement,pass,test_fail,pass,test_fail,7.844000000040978,3.170679404051043
+752,more-itertools,grammar-based: expression,pass,test_fail,pass,test_fail,8.25,2.8986947019584477
+753,msgpack-python,grammar-based: block,pass,test_fail,pass,test_fail,7.75,5.702768918010406
+754,msgpack-python,grammar-based: expression,pass,pass,pass,pass,7.844000000040978,6.530843015993014
+755,msgpack-python,grammar-based: block,pass,pass,pass,pass,7.625,6.363050510000903
+756,msgpack-python,grammar-based: block,pass,test_fail,pass,test_fail,7.547000000020489,6.5389577629975975
+757,msgpack-python,grammar-based: expression,pass,pass,pass,pass,7.64000000001397,6.624033870000858
+758,msgpack-python,grammar-based: expression,pass,pass,pass,pass,7.26500000001397,6.543603204016108
+759,msgpack-python,grammar-based: expression,pass,test_fail,pass,test_fail,6.327999999979511,6.64537427801406
+760,msgpack-python,grammar-based: block,pass,pass,pass,pass,6.422000000020489,6.597332991019357
+761,msgpack-python,grammar-based: expression,pass,test_fail,pass,test_fail,6.469000000040978,6.301701131043956
+762,msgpack-python,grammar-based: statement,pass,pass,pass,pass,6.405999999959022,5.430089873960242
+763,msgpack-python,grammar-based: expression,pass,test_fail,pass,test_fail,6.452999999979511,7.500625924032647
+764,msgpack-python,grammar-based: statement,pass,pass,pass,pass,6.343999999924563,5.770400248002261
+765,msgpack-python,grammar-based: expression,pass,test_fail,pass,test_fail,6.422000000020489,8.302132293989416
+766,msgpack-python,grammar-based: block,pass,pass,pass,pass,6.265999999945052,5.84660862601595
+767,msgpack-python,grammar-based: statement,pass,test_fail,pass,test_fail,7.171999999904074,5.963351826998405
+768,msgpack-python,grammar-based: statement,pass,test_fail,pass,test_fail,6.812000000034459,6.323057735979091
+769,msgpack-python,grammar-based: expression,pass,test_fail,pass,test_fail,7.266000000061467,9.488590483029839
+770,msgpack-python,grammar-based: block,pass,pass,pass,pass,6.937000000034459,6.150843135023024
+771,msgpack-python,grammar-based: expression,pass,pass,pass,pass,7.077999999979511,6.233360212994739
+772,msgpack-python,grammar-based: expression,pass,pass,pass,pass,7.031000000075437,6.585920615005307
+773,objprint,grammar-based: block,pass,pass,pass,pass,7.844000000040978,6.696199136029463
+774,objprint,grammar-based: statement,pass,test_fail,pass,test_fail,8.047000000020489,5.692387307994068
+775,objprint,grammar-based: block,pass,test_fail,pass,test_fail,7.625,6.330978766956832
+776,objprint,grammar-based: expression,pass,pass,pass,pass,7.593999999924563,6.481504027033225
+777,objprint,grammar-based: statement,pass,test_fail,pass,test_fail,7.280999999959022,6.435981129005086
+778,objprint,grammar-based: expression,pass,test_fail,pass,test_fail,7.296999999904074,6.745424098975491
+779,objprint,grammar-based: block,pass,test_fail,pass,test_fail,7.108999999938533,6.82281890703598
+780,objprint,grammar-based: block,pass,test_fail,pass,test_fail,7.140999999945052,7.06681613100227
+781,objprint,grammar-based: block,pass,pass,pass,pass,7.35999999998603,7.013499285036232
+782,objprint,grammar-based: expression,pass,test_fail,pass,test_fail,7.187999999965541,6.7269406379782595
+783,objprint,grammar-based: statement,pass,test_fail,pass,test_fail,7.407000000006519,7.107981591951102
+784,objprint,grammar-based: block,pass,test_fail,pass,test_fail,7.437000000034459,6.903227857023012
+785,objprint,grammar-based: expression,pass,test_fail,pass,test_fail,8.03200000000652,6.911564263049513
+786,objprint,grammar-based: expression,pass,test_fail,pass,test_fail,7.98499999998603,6.040675088996068
+787,objprint,grammar-based: block,pass,test_fail,pass,test_fail,7.75,11.663577488041483
+788,pysrt,Random Multi-line Completion,pass,test_fail,pass,test_fail,4.437000000034459,3.375892504991498
+789,pysrt,grammar-based: block,pass,test_fail,pass,test_fail,4.812999999965541,4.035122514993418
+790,pysrt,grammar-based: expression,pass,test_fail,pass,test_fail,4.265999999945052,4.587457064015325
+791,pysrt,grammar-based: statement,pass,pass,pass,pass,4.60999999998603,4.709934480953962
+792,pysrt,grammar-based: block,pass,test_fail,pass,test_fail,5.234000000054948,3.357813281007111
+793,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,4.75,3.210728449979797
+794,pysrt,grammar-based: block,pass,test_fail,pass,test_fail,5.092999999993481,3.9899767749593593
+795,pysrt,grammar-based: block,pass,pass,pass,pass,5.0,4.021018803992774
+796,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,5.0,4.009016416035593
+797,pysrt,grammar-based: expression,pass,test_fail,pass,test_fail,4.562999999965541,3.478782781981863
+798,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,4.859000000054948,2.8588096710154787
+799,pysrt,grammar-based: block,pass,test_fail,pass,test_fail,4.952999999979511,4.209782749996521
+800,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,5.10999999998603,2.9498623819672503
+801,pysrt,grammar-based: expression,pass,pass,pass,pass,5.188000000081956,4.409516724990681
+802,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,5.187999999965541,4.025575932988431
+803,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,5.125,2.8846941129886545
+804,pysrt,grammar-based: expression,pass,test_fail,pass,test_fail,6.108999999938533,3.7422910489840433
+805,pysrt,grammar-based: expression,pass,pass,pass,pass,6.202999999979511,3.5833049429929815
+806,pysrt,grammar-based: block,pass,pass,pass,pass,6.375,3.724111097981222
+807,pysrt,grammar-based: block,pass,test_fail,pass,test_fail,6.718999999924563,3.626035820983816
+808,pysrt,grammar-based: statement,pass,test_fail,pass,test_fail,6.437000000034459,2.612133879971225
+809,python-fastjsonschema,Random Single-line Completion,pass,pass,pass,pass,56.82799999997951,56.21835032000672
+810,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,64.03200000000652,4.388822123000864
+811,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,62.01500000001397,60.979595138982404
+812,python-fastjsonschema,grammar-based: statement,pass,test_fail,pass,test_fail,62.90700000000652,60.63473070401233
+813,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,62.375,61.26980473403819
+814,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,61.76600000006147,3.587554265977815
+815,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,54.53099999995902,60.43379894300597
+816,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,58.73399999993853,49.88166051299777
+817,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,57.5,51.09178441000404
+818,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,58.84399999992456,7.273121317033656
+819,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,58.10900000005495,4.873367810039781
+820,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,57.64000000001397,6.942952863988467
+821,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,51.14099999994505,4.399042310018558
+822,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,49.5,50.38844926003367
+823,python-fastjsonschema,grammar-based: statement,pass,test_fail,pass,test_fail,48.59399999992456,4.306917511974461
+824,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,48.71899999992456,51.40804439003114
+825,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,49.5,6.085741240007337
+826,python-fastjsonschema,grammar-based: expression,pass,pass,pass,pass,49.40600000007544,49.82468122302089
+827,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,50.26500000001397,3.8064330870402046
+828,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,52.06200000003446,49.22443582100095
+829,python-fastjsonschema,grammar-based: statement,pass,test_fail,pass,test_fail,51.23399999993853,5.930262567999307
+830,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,51.60900000005495,50.1404387440416
+831,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,49.35899999993853,6.436996849020943
+832,python-fastjsonschema,grammar-based: expression,pass,test_fail,pass,test_fail,50.23399999993853,51.759220093954355
+833,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,49.09400000004098,50.017719526949804
+834,python-fastjsonschema,grammar-based: block,pass,pass,pass,pass,46.34400000004098,52.216101448982954
+835,python-fastjsonschema,grammar-based: block,pass,test_fail,pass,test_fail,47.06299999996554,6.178940483019687
+836,python-patterns,grammar-based: expression,pass,pass,pass,pass,6.75,6.636412276013289
+837,python-patterns,grammar-based: statement,pass,pass,pass,pass,6.172000000020489,6.414136062026955
+838,python-patterns,grammar-based: block,pass,test_fail,pass,test_fail,6.375,7.24117189401295
+839,python-patterns,grammar-based: block,pass,test_fail,pass,test_fail,6.390999999945052,6.62322765897261
+840,python-patterns,grammar-based: block,pass,pass,pass,pass,6.030999999959022,6.270244471961632
+841,python-patterns,grammar-based: statement,pass,pass,pass,pass,6.202999999979511,7.170506828988437
+842,python-patterns,grammar-based: expression,pass,test_fail,pass,test_fail,7.0,7.400582464993931
+843,python-patterns,grammar-based: expression,pass,pass,pass,pass,7.062999999965541,8.366319008986466
+844,python-patterns,grammar-based: expression,pass,pass,pass,pass,6.437999999965541,8.280078687006608
+845,python-patterns,grammar-based: expression,pass,pass,pass,pass,6.905999999959022,8.141042580013163
+846,python-patterns,grammar-based: expression,pass,pass,pass,pass,6.5,8.1218339150073
+847,python-patterns,grammar-based: expression,pass,test_fail,pass,test_fail,6.64000000001397,8.017509302007966
+848,python-pinyin,Random Multi-line Completion,pass,test_fail,pass,test_fail,17.625,89.70090530195739
+849,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,17.29700000002049,71.58563973201672
+850,python-pinyin,grammar-based: expression,pass,test_fail,pass,test_fail,16.95299999997951,21.851604082039557
+851,python-pinyin,grammar-based: statement,pass,pass,pass,pass,17.405999999959022,21.657408772967756
+852,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,17.516000000061467,10.191277982026804
+853,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,17.531000000075437,9.71333895099815
+854,python-pinyin,grammar-based: block,pass,test_fail,pass,test_fail,17.983999999938533,66.19464595796308
+855,python-pinyin,grammar-based: block,pass,test_fail,pass,test_fail,17.26500000001397,24.507933253014926
+856,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,18.078000000095926,54.39612099702936
+857,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,18.26500000001397,19.50925908604404
+858,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,18.92200000002049,25.340102625021245
+859,python-pinyin,grammar-based: statement,pass,test_fail,pass,infrastructure_error,18.859000000054948,135.15700000000652
+860,python-pinyin,grammar-based: expression,pass,test_fail,pass,test_fail,18.48499999998603,31.866493807989173
+861,python-pinyin,grammar-based: block,pass,test_fail,pass,infrastructure_error,18.54700000002049,25.5
+862,python-pinyin,grammar-based: statement,pass,test_fail,pass,test_fail,18.57799999997951,20.922548767994158
+863,python-pinyin,grammar-based: block,pass,pass,pass,pass,19.04700000002049,20.714700743032154
+864,python-pinyin,grammar-based: block,pass,test_fail,pass,test_fail,19.70299999997951,17.644521937996615
+865,python-pinyin,grammar-based: expression,pass,test_fail,pass,test_fail,19.18700000003446,18.60993410804076
+866,python-pinyin,grammar-based: block,pass,test_fail,pass,test_fail,19.18700000003446,57.68504785496043
+867,python-pinyin,grammar-based: expression,pass,test_fail,pass,test_fail,18.983999999938533,18.12461873702705
+868,python-pinyin,grammar-based: block,pass,test_fail,pass,test_fail,19.17200000002049,75.24052109499462
+869,python-pinyin,grammar-based: statement,pass,test_fail,pass,infrastructure_error,19.23499999998603,132.31200000003446
+870,python-pinyin,grammar-based: block,pass,test_fail,pass,test_fail,18.57799999997951,20.9479902999592
+871,python-pinyin,grammar-based: statement,pass,pass,pass,pass,18.64000000001397,17.953581026988104
+872,python-pinyin,grammar-based: block,pass,infrastructure_error,pass,infrastructure_error,18.608999999938533,10.671999999904074
+873,python-rasterstats,Random Single-line Completion,test_fail,test_fail,test_fail,test_fail,26.32799999997951,30.05731768597616
+874,python-rasterstats,Random Single-line Completion,test_fail,test_fail,test_fail,test_fail,25.95299999997951,7.262632757017855
+875,python-rasterstats,Random Multi-line Completion,test_fail,test_fail,test_fail,test_fail,26.609000000054948,24.697134042042308
+876,python-rasterstats,Random Multi-line Completion,test_fail,test_fail,test_fail,test_fail,26.781000000075437,9.126779120007996
+877,python-rasterstats,Random Span Completion,test_fail,test_fail,test_fail,test_fail,26.35999999998603,27.168118403002154
+878,python-rasterstats,grammar-based: block,test_fail,test_fail,test_fail,test_fail,26.65700000000652,27.722247577970847
+879,python-rasterstats,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,26.06299999996554,25.800935878010932
+880,python-rasterstats,grammar-based: block,test_fail,test_fail,test_fail,test_fail,26.21799999999348,6.398271984013263
+881,python-rasterstats,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,25.265999999945052,27.803651348978747
+882,python-rasterstats,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,25.969000000040978,28.787987583025824
+883,python-rasterstats,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,25.92200000002049,28.489416591997724
+884,python-rasterstats,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,25.280999999959022,29.105323188006878
+885,python-rasterstats,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,25.35999999998603,28.103708081995137
+886,python-rasterstats,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,25.813000000081956,27.788604100001976
+887,python-rasterstats,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,25.70299999997951,14.83832047204487
+888,python-rasterstats,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,26.15700000000652,26.380760369997006
+889,python-rasterstats,grammar-based: block,test_fail,test_fail,test_fail,test_fail,25.734000000054948,25.8574279799941
+890,python-sortedcontainers,grammar-based: expression,pass,test_fail,pass,test_fail,19.39000000001397,3.913540882989764
+891,python-sortedcontainers,grammar-based: statement,pass,test_fail,pass,test_fail,20.5,20.18559493898647
+892,python-sortedcontainers,grammar-based: expression,pass,pass,pass,pass,19.780999999959022,19.511560020036995
+893,python-sortedcontainers,grammar-based: block,pass,test_fail,pass,test_fail,19.718999999924563,18.82825956301531
+894,python-sortedcontainers,grammar-based: block,pass,test_fail,pass,test_fail,20.265999999945052,20.404338760999963
+895,python-sortedcontainers,grammar-based: statement,pass,test_fail,pass,test_fail,20.26500000001397,5.082699663005769
+896,python-sortedcontainers,grammar-based: expression,pass,test_fail,pass,test_fail,19.84299999999348,6.952893402019981
+897,python-sortedcontainers,grammar-based: block,pass,pass,pass,pass,20.29599999997299,19.771470953011885
+898,shortuuid,Random Single-line Completion,pass,pass,pass,pass,5.484000000054948,5.447343806969002
+899,shortuuid,Random Single-line Completion,pass,pass,pass,pass,5.640999999945052,5.818446305987891
+900,shortuuid,Random Multi-line Completion,pass,pass,pass,pass,5.594000000040978,5.691933206981048
+901,shortuuid,Random Span Completion,pass,test_fail,pass,test_fail,5.484000000054948,5.959917117957957
+902,shortuuid,Random Span Completion,pass,test_fail,pass,test_fail,5.516000000061467,6.063727839966305
+903,shortuuid,grammar-based: statement,pass,pass,pass,pass,5.734000000054948,5.882800148974638
+904,shortuuid,grammar-based: statement,pass,test_fail,pass,test_fail,5.937999999965541,5.694122941989917
+905,shortuuid,grammar-based: block,pass,test_fail,pass,test_fail,6.0,5.4201857870211825
+906,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,5.937999999965541,5.510134292009752
+907,shortuuid,grammar-based: statement,pass,test_fail,pass,test_fail,6.047000000020489,5.335959222982638
+908,shortuuid,grammar-based: expression,pass,pass,pass,pass,6.327999999979511,5.423159456986468
+909,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,5.875,5.674777609005105
+910,shortuuid,grammar-based: expression,pass,pass,pass,pass,5.952999999979511,5.79866647196468
+911,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,5.891000000061467,5.729315312986728
+912,shortuuid,grammar-based: statement,pass,test_fail,pass,test_fail,5.89000000001397,5.819526269973721
+913,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,5.890999999945052,5.839334803982638
+914,shortuuid,grammar-based: block,pass,pass,pass,pass,5.891000000061467,5.811844916024711
+915,shortuuid,grammar-based: block,pass,test_fail,pass,test_fail,6.016000000061467,6.013475214014761
+916,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,5.734000000054948,6.0518834560061805
+917,shortuuid,grammar-based: statement,pass,test_fail,pass,test_fail,5.890999999945052,6.26540648797527
+918,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,5.85999999998603,6.257770810974762
+919,shortuuid,grammar-based: expression,pass,pass,pass,pass,5.670999999972992,5.59239827899728
+920,shortuuid,grammar-based: expression,pass,test_fail,pass,test_fail,6.062999999965541,5.517278151994105
+921,sqlparse,Random Single-line Completion,pass,pass,pass,pass,8.25,8.285469689988531
+922,sqlparse,Random Single-line Completion,pass,pass,pass,pass,8.594000000040978,8.02900723804487
+923,sqlparse,Random Span Completion,pass,pass,pass,pass,8.702999999979511,8.164980240981095
+924,sqlparse,Random Span Completion,pass,test_fail,pass,test_fail,8.75,7.4802892379811965
+925,sqlparse,Random Span Completion,pass,test_fail,pass,test_fail,8.797000000020489,7.520546774030663
+926,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.530999999959022,7.350459332985338
+927,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.625,7.532818190054968
+928,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.546999999904074,26.019942346028984
+929,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.234000000054948,6.546222832985222
+930,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.25,10.882296177966055
+931,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.28200000000652,7.226183381979354
+932,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.344000000040978,7.87365869700443
+933,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.327999999979511,8.131599095999263
+934,sqlparse,grammar-based: expression,pass,pass,pass,pass,8.35999999998603,7.799734946980607
+935,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.422000000020489,9.95954323996557
+936,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.422000000020489,7.588925815012772
+937,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.545999999972992,7.398037068021949
+938,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.59299999999348,9.779696675017476
+939,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,9.0,8.299880520033184
+940,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.656000000075437,7.706146017997526
+941,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.875,10.648886431008577
+942,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.844000000040978,7.566560730978381
+943,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.766000000061467,8.58731698000338
+944,sqlparse,grammar-based: block,pass,pass,pass,pass,8.577999999979511,7.926743115996942
+945,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.484000000054948,9.97722022200469
+946,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.265999999945052,11.356976707000285
+947,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.297000000020489,7.640748276957311
+948,sqlparse,grammar-based: block,pass,pass,pass,pass,8.327999999979511,7.726836005982477
+949,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.233999999938533,6.325691437989008
+950,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.297000000020489,15.385391213989351
+951,sqlparse,grammar-based: expression,pass,test_fail,pass,test_fail,8.14000000001397,9.809266299009323
+952,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.344000000040978,22.153445340984035
+953,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.327999999979511,7.775887398980558
+954,sqlparse,grammar-based: expression,pass,timeout,pass,timeout,8.312999999965541,241.42091713100672
+955,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.23499999998603,47.54595409397734
+956,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.297000000020489,8.735624333960004
+957,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.469000000040978,7.866384576016571
+958,sqlparse,grammar-based: block,pass,test_fail,pass,test_fail,8.26500000001397,9.116464850027114
+959,sqlparse,grammar-based: statement,pass,test_fail,pass,test_fail,8.202999999979511,10.50845174404094
+960,tabulator-py,Random Single-line Completion,pass,pass,pass,pass,8.827999999979511,9.149566241016146
+961,tabulator-py,Random Multi-line Completion,pass,test_fail,pass,test_fail,8.75,8.714782166993245
+962,tabulator-py,grammar-based: block,pass,test_fail,pass,test_fail,8.812999999965541,8.719780089042615
+963,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.577999999979511,7.710223580012098
+964,tabulator-py,grammar-based: block,pass,pass,pass,pass,8.75,7.892786350974347
+965,tabulator-py,grammar-based: expression,pass,test_fail,pass,test_fail,8.75,7.032862991036382
+966,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.96799999999348,8.021586781018414
+967,tabulator-py,grammar-based: block,pass,test_fail,pass,test_fail,8.922000000020489,7.221203041030094
+968,tabulator-py,grammar-based: expression,pass,test_fail,pass,test_fail,8.687000000034459,7.579038272961043
+969,tabulator-py,grammar-based: expression,pass,test_fail,pass,test_fail,8.937999999965541,7.997696815000381
+970,tabulator-py,grammar-based: block,pass,test_fail,pass,test_fail,8.952999999979511,8.69716773298569
+971,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.953000000095926,8.961759247002192
+972,tabulator-py,grammar-based: block,pass,test_fail,pass,test_fail,8.688000000081956,8.837987200007774
+973,tabulator-py,grammar-based: expression,pass,test_fail,pass,test_fail,8.797000000020489,7.80216876801569
+974,tabulator-py,grammar-based: block,pass,test_fail,pass,test_fail,8.797000000020489,8.172381784010213
+975,tabulator-py,grammar-based: block,pass,pass,pass,pass,8.452999999979511,7.972377911035437
+976,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.797000000020489,7.846285741019528
+977,tabulator-py,grammar-based: block,pass,pass,pass,pass,8.780999999959022,8.136301063001156
+978,tabulator-py,grammar-based: block,pass,pass,pass,pass,8.968999999924563,8.200862136960495
+979,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.73499999998603,8.353331163991243
+980,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.906000000075437,8.84288186300546
+981,tabulator-py,grammar-based: expression,pass,test_fail,pass,test_fail,9.203000000095926,7.574677551048808
+982,tabulator-py,grammar-based: statement,pass,pass,pass,pass,8.733999999938533,8.261508575000335
+983,tabulator-py,grammar-based: expression,pass,pass,pass,pass,8.625,8.813871174002998
+984,tabulator-py,grammar-based: block,pass,test_fail,pass,test_fail,8.46799999999348,8.948432336968835
+985,textdistance,Random Multi-line Completion,pass,test_fail,pass,test_fail,18.57799999997951,7.291345142002683
+986,textdistance,Random Span Completion,pass,pass,pass,pass,18.218999999924563,20.99681404000148
+987,textdistance,Random Span Completion,pass,test_fail,pass,test_fail,17.936999999918044,9.47052596398862
+988,textdistance,grammar-based: block,pass,test_fail,pass,test_fail,18.469000000040978,20.33184658701066
+989,textdistance,grammar-based: statement,pass,pass,pass,pass,18.5,21.438224364013877
+990,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,18.35999999998603,5.709838613984175
+991,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,20.23499999998603,5.503568289044779
+992,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,20.06200000003446,6.0893967730225995
+993,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,19.90700000000652,5.744299090991262
+994,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,20.0,22.660851794003975
+995,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.469000000040978,8.947429389983881
+996,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.313000000081956,21.214714791974984
+997,textdistance,grammar-based: statement,pass,pass,pass,pass,20.734000000054948,20.70338844298385
+998,textdistance,grammar-based: block,pass,test_fail,pass,test_fail,20.56299999996554,20.930443106975872
+999,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,21.06200000003446,9.40212106803665
+1000,textdistance,grammar-based: block,pass,test_fail,pass,test_fail,21.108999999938533,21.563780099037103
+1001,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,20.890999999945052,6.071137783990707
+1002,textdistance,grammar-based: statement,pass,test_fail,pass,test_fail,21.39000000001397,9.587396866001654
+1003,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.45299999997951,20.856159663002472
+1004,textdistance,grammar-based: expression,pass,pass,pass,pass,20.14000000001397,20.501915742002893
+1005,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.42200000002049,5.879935882985592
+1006,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.141000000061467,8.609905336983502
+1007,textdistance,grammar-based: block,pass,test_fail,pass,test_fail,20.26500000001397,20.506888353964314
+1008,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.57799999997951,8.99876604997553
+1009,textdistance,grammar-based: block,pass,test_fail,pass,test_fail,20.82799999997951,20.891814654984046
+1010,textdistance,grammar-based: expression,pass,test_fail,pass,test_fail,20.311999999918044,8.632002850994468
+1011,textdistance,grammar-based: statement,pass,pass,pass,pass,20.858999999938533,20.31830769602675
+1012,transitions,Random Span Completion,pass,test_fail,pass,test_fail,37.73400000005495,5.656029483012389
+1013,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,37.125,6.556039160001092
+1014,transitions,grammar-based: expression,pass,test_fail,pass,test_fail,36.64100000006147,4.7526962329866365
+1015,transitions,grammar-based: statement,pass,pass,pass,pass,36.82799999997951,37.15033123397734
+1016,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,36.875,5.555962918966543
+1017,transitions,grammar-based: block,pass,test_fail,pass,test_fail,36.93799999996554,14.23655646701809
+1018,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,35.625,14.290786700032186
+1019,transitions,grammar-based: statement,pass,pass,pass,pass,35.79700000002049,37.45207560597919
+1020,transitions,grammar-based: block,pass,test_fail,pass,test_fail,35.53099999995902,14.270410740980878
+1021,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,32.375,5.572614615026396
+1022,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,32.26599999994505,6.175929769990034
+1023,transitions,grammar-based: block,pass,test_fail,pass,test_fail,31.155999999959022,13.531447630026378
+1024,transitions,grammar-based: expression,pass,test_fail,pass,test_fail,31.561999999918044,13.579523897031322
+1025,transitions,grammar-based: expression,pass,test_fail,pass,test_fail,31.46799999999348,13.95920775400009
+1026,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,31.79700000002049,13.175616273016203
+1027,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,31.265999999945052,4.4820736949914135
+1028,transitions,grammar-based: block,pass,test_fail,pass,test_fail,31.375,13.4711064749863
+1029,transitions,grammar-based: block,pass,test_fail,pass,test_fail,31.375,13.444090458971914
+1030,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,31.094000000040978,13.618278409994673
+1031,transitions,grammar-based: block,pass,test_fail,pass,test_fail,31.313000000081956,6.2662992689874955
+1032,transitions,grammar-based: expression,pass,test_fail,pass,test_fail,31.04700000002049,6.239651746000163
+1033,transitions,grammar-based: statement,pass,test_fail,pass,test_fail,30.92200000002049,4.9056137620355
+1034,transitions,grammar-based: block,pass,test_fail,pass,test_fail,30.85999999998603,5.099556438974105
+1035,transitions,grammar-based: block,pass,test_fail,pass,test_fail,30.54700000002049,5.280446960008703
+1036,transitions,grammar-based: expression,pass,test_fail,pass,test_fail,32.89000000001397,5.181054591026623
+1037,truecase,Random Multi-line Completion,test_fail,test_fail,test_fail,test_fail,5.640999999945052,4.20937277097255
+1038,truecase,Random Span Completion,test_fail,test_fail,test_fail,test_fail,5.48499999998603,2.267769532976672
+1039,truecase,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,6.437000000034459,7.897062324045692
+1040,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,6.469000000040978,2.422915595001541
+1041,truecase,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,7.062000000034459,2.5583555729826912
+1042,truecase,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,7.0,2.5041926900157705
+1043,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,7.0,2.4673856259905733
+1044,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,6.905999999959022,7.640591646952089
+1045,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,6.952999999979511,7.695623344974592
+1046,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,6.343999999924563,7.637951223994605
+1047,truecase,grammar-based: block,test_fail,test_fail,test_fail,test_fail,6.342999999993481,7.6117504620342515
+1048,truecase,grammar-based: block,test_fail,test_fail,test_fail,test_fail,6.297000000020489,7.674367269035429
+1049,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,6.391000000061467,2.865108344005421
+1050,truecase,grammar-based: statement,test_fail,test_fail,test_fail,test_fail,6.327999999979511,2.7365378249669448
+1051,truecase,grammar-based: block,test_fail,test_fail,test_fail,test_fail,6.313000000081956,7.5881969049805775
+1052,truecase,grammar-based: expression,test_fail,test_fail,test_fail,test_fail,6.405999999959022,7.258282059978228
+1053,tryme,Random Multi-line Completion,pass,test_fail,pass,test_fail,4.312999999965541,5.208670791005716
+1054,tryme,Random Span Completion,pass,pass,pass,pass,4.280999999959022,4.499516504991334
+1055,tryme,grammar-based: expression,pass,test_fail,pass,test_fail,4.468999999924563,4.920790723001119
+1056,tryme,grammar-based: statement,pass,test_fail,pass,test_fail,4.640999999945052,5.6278234489727765
+1057,tryme,grammar-based: statement,pass,test_fail,pass,test_fail,4.702999999979511,6.0065093010198325
+1058,tryme,grammar-based: block,pass,timeout,pass,timeout,4.656000000075437,241.72594806196867
+1059,tryme,grammar-based: block,pass,test_fail,pass,test_fail,4.656000000075437,5.567627522978
+1060,tryme,grammar-based: block,pass,pass,pass,pass,4.687000000034459,5.488267701002769
+1061,tryme,grammar-based: expression,pass,pass,pass,pass,4.85999999998603,5.172199898981489
+1062,tryme,grammar-based: block,pass,test_fail,pass,test_fail,5.125,5.720844550000038
+1063,tryme,grammar-based: block,pass,test_fail,pass,test_fail,4.672000000020489,5.289441573026124
+1064,tryme,grammar-based: statement,pass,test_fail,pass,test_fail,4.76500000001397,5.694636063999496
+1065,tryme,grammar-based: expression,pass,pass,pass,pass,4.781000000075437,5.19375920802122
+1066,tryme,grammar-based: expression,pass,test_fail,pass,test_fail,4.766000000061467,5.404683875036426
+1067,tryme,grammar-based: statement,pass,test_fail,pass,test_fail,4.828000000095926,5.3512276179972105
+1068,tryme,grammar-based: expression,pass,test_fail,pass,test_fail,4.952999999979511,5.203570875979494
+1069,tryme,grammar-based: block,pass,test_fail,pass,test_fail,5.062000000034459,4.738090729981195
+1070,tryme,grammar-based: expression,pass,pass,pass,pass,4.812999999965541,4.695849958981853
+1071,tryme,grammar-based: block,pass,test_fail,pass,test_fail,4.75,5.053985776961781
+1072,untangle,Random Single-line Completion,pass,test_fail,pass,test_fail,4.795999999972992,4.947012909979094
+1073,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.75,5.781872770981863
+1074,untangle,grammar-based: block,pass,test_fail,pass,test_fail,4.844000000040978,5.044053423043806
+1075,untangle,grammar-based: block,pass,test_fail,pass,test_fail,5.0,5.947023363027256
+1076,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.733999999938533,5.885591491998639
+1077,untangle,grammar-based: block,pass,test_fail,pass,test_fail,4.734000000054948,5.140204497030936
+1078,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.813000000081956,5.594789238006342
+1079,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.655999999959022,5.194938237022143
+1080,untangle,grammar-based: expression,pass,pass,pass,pass,4.73499999998603,4.845870190998539
+1081,untangle,grammar-based: block,pass,test_fail,pass,test_fail,4.375,5.8815930300042965
+1082,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.562999999965541,5.082725649990607
+1083,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.625,5.418603926023934
+1084,untangle,grammar-based: block,pass,test_fail,pass,test_fail,4.5,5.439183190988842
+1085,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.609000000054948,5.432474553992506
+1086,untangle,grammar-based: statement,pass,test_fail,pass,test_fail,4.688000000081956,5.428778326022439
+1087,untangle,grammar-based: expression,pass,test_fail,pass,test_fail,4.655999999959022,6.133695260970853
+1088,untangle,grammar-based: expression,pass,pass,pass,pass,4.75,4.850707450998016
+1089,untangle,grammar-based: expression,pass,test_fail,pass,test_fail,4.655999999959022,4.835040930018295
+1090,untangle,grammar-based: expression,pass,test_fail,pass,test_fail,4.577999999979511,6.54816932301037
+1091,w2n,Random Single-line Completion,pass,pass,pass,pass,4.625,4.8464865470305085
+1092,w2n,Random Multi-line Completion,pass,test_fail,pass,test_fail,4.546999999904074,5.149249197973404
+1093,w2n,Random Span Completion,pass,test_fail,pass,test_fail,4.578000000095926,4.9325780349900015
+1094,w2n,grammar-based: expression,pass,pass,pass,pass,4.5,4.927232089044992
+1095,w2n,grammar-based: statement,pass,test_fail,pass,test_fail,4.531000000075437,5.291506320005283
+1096,w2n,grammar-based: expression,pass,test_fail,pass,test_fail,4.547000000020489,5.4616276969900355
+1097,w2n,grammar-based: block,pass,test_fail,pass,test_fail,4.702999999979511,5.5770196440280415
+1098,w2n,grammar-based: statement,pass,test_fail,pass,test_fail,4.75,5.770752355980221
+1099,w2n,grammar-based: expression,pass,pass,pass,pass,4.718999999924563,5.40356491599232
+1100,w2n,grammar-based: expression,pass,test_fail,pass,test_fail,4.85999999998603,5.142359881021548
+1101,w2n,grammar-based: statement,pass,test_fail,pass,test_fail,4.75,5.126287207007408
+1102,w2n,grammar-based: block,pass,test_fail,pass,test_fail,4.687000000034459,5.110165079997387
+1103,w2n,grammar-based: block,pass,test_fail,pass,test_fail,4.577999999979511,4.702817315992434
+1104,w2n,grammar-based: expression,pass,pass,pass,pass,4.641000000061467,4.373130702006165
+1105,w2n,grammar-based: expression,pass,test_fail,pass,test_fail,4.781000000075437,4.616649791016243
+1106,w2n,grammar-based: block,pass,test_fail,pass,test_fail,4.594000000040978,4.5208336529904045
+1107,w2n,grammar-based: block,pass,test_fail,pass,test_fail,4.64000000001397,4.436620809021406
+1108,w2n,grammar-based: expression,pass,pass,pass,pass,4.842999999993481,4.192070110992063
+1109,w2n,grammar-based: expression,pass,test_fail,pass,test_fail,5.547000000020489,4.627706285042223
+1110,w2n,grammar-based: expression,pass,test_fail,pass,test_fail,5.890999999945052,5.27185829798691
+1111,w2n,grammar-based: expression,pass,pass,pass,pass,5.811999999918044,5.2774759019957855
+1112,w2n,grammar-based: expression,pass,test_fail,pass,test_fail,5.827999999979511,5.409171907987911
+1113,workdays,Random Single-line Completion,pass,test_fail,pass,test_fail,3.1570000000065193,2.924473192950245
+1114,workdays,Random Single-line Completion,pass,test_fail,pass,test_fail,3.187999999965541,2.7796802269876935
+1115,workdays,Random Multi-line Completion,pass,test_fail,pass,test_fail,2.76500000001397,2.725265651999507
+1116,workdays,grammar-based: statement,pass,test_fail,pass,test_fail,2.702999999979511,2.427406175993383
+1117,workdays,grammar-based: block,pass,test_fail,pass,test_fail,2.905999999959022,2.443301610997878
+1118,workdays,grammar-based: expression,pass,pass,pass,pass,2.8910000000614673,2.471316625014879
+1119,workdays,grammar-based: block,pass,test_fail,pass,test_fail,2.8290000000270084,2.3540194489760324
+1120,workdays,grammar-based: block,pass,test_fail,pass,test_fail,2.922000000020489,2.5045900819823146
+1121,workdays,grammar-based: block,pass,test_fail,pass,test_fail,2.844000000040978,2.4609899829956703
+1122,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.75,2.6484588619787246
+1123,workdays,grammar-based: block,pass,test_fail,pass,test_fail,2.812000000034459,2.2990507280337624
+1124,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.843999999924563,2.4153049760498106
+1125,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.984000000054948,2.5813920709770173
+1126,workdays,grammar-based: expression,pass,pass,pass,pass,2.922000000020489,2.68730702099856
+1127,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.8589999999385327,2.6756458840100095
+1128,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.655999999959022,2.7501344549818896
+1129,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.719000000040978,2.740742327994667
+1130,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.9070000000065193,2.790766998019535
+1131,workdays,grammar-based: expression,pass,pass,pass,pass,2.780999999959022,2.703097872028593
+1132,workdays,grammar-based: expression,pass,test_fail,pass,test_fail,2.75,2.479239131032955
+1133,xmltodict,Random Multi-line Completion,pass,test_fail,pass,test_fail,2.7820000000065193,2.6931334869586863
+1134,xmltodict,Random Multi-line Completion,pass,test_fail,pass,test_fail,2.844000000040978,2.8686121529899538
+1135,xmltodict,Random Span Completion,pass,test_fail,pass,test_fail,2.812999999965541,2.9210674589849077
+1136,xmltodict,grammar-based: statement,pass,test_fail,pass,test_fail,2.937000000034459,2.5798064949922264
+1137,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,3.2030000000959262,2.669677395024337
+1138,xmltodict,grammar-based: statement,pass,test_fail,pass,test_fail,2.890999999945052,2.7306976409745403
+1139,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,3.0,2.5623136519570835
+1140,xmltodict,grammar-based: statement,pass,test_fail,pass,test_fail,2.905999999959022,2.878589991014451
+1141,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.952999999979511,2.4390049460344017
+1142,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,3.0,2.4321188580361195
+1143,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,3.062000000034459,2.3825840309727937
+1144,xmltodict,grammar-based: statement,pass,test_fail,pass,test_fail,3.375,2.3955680479994044
+1145,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.952999999979511,2.6021350490045734
+1146,xmltodict,grammar-based: block,pass,pass,pass,pass,2.9540000000270084,2.3027805099845864
+1147,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.797000000020489,2.5794179450022057
+1148,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.9679999999934807,2.4397242429549806
+1149,xmltodict,grammar-based: statement,pass,test_fail,pass,test_fail,3.047000000020489,2.1669018209795468
+1150,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.702999999979511,2.7854865370318294
+1151,xmltodict,grammar-based: statement,pass,test_fail,pass,test_fail,2.859000000054948,3.3271726989769377
+1152,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.905999999959022,2.9274403100134805
+1153,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.640999999945052,2.8937846699845977
+1154,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,2.922000000020489,2.913174668967258
+1155,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,3.172000000020489,2.817863696021959
+1156,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,3.140999999945052,2.624221521022264
+1157,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,2.702999999979511,2.6316298299934715
+1158,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.797000000020489,2.762048988020979
+1159,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,2.8130000000819564,2.8925495769944973
+1160,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,2.672000000020489,3.0559090939932503
+1161,xmltodict,grammar-based: block,pass,test_fail,pass,test_fail,2.76500000001397,2.8680343029554933
+1162,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,2.719000000040978,2.3770619109855033
+1163,xmltodict,grammar-based: expression,pass,test_fail,pass,test_fail,2.405999999959022,2.572398485033773
