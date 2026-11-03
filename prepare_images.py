@@ -26,6 +26,11 @@ def build_repository(repo, tasks, args, base, destination):
         # Compile the unchanged dependency with its original language/ABI model.
         config["build_env"] = {"CFLAGS": "-std=c++03 -D_GLIBCXX_USE_CXX11_ABI=0",
                                "CXXFLAGS": "-std=c++03 -D_GLIBCXX_USE_CXX11_ABI=0"}
+        # Its saved pylint<2.6 needs mccabe<0.7. The flake8 tool added for
+        # cacheout's dev extra is not a dependency of this project/test driver.
+        config["post_install_commands"] = [
+            ["python", "-m", "pip", "uninstall", "-y", "flake8"],
+            ["python", "-m", "pip", "install", "--no-cache-dir", "mccabe==0.6.1"]]
     fingerprint = digest(config)
     saved = destination / "image.json"
     if saved.exists():
@@ -57,6 +62,12 @@ def build_repository(repo, tasks, args, base, destination):
                 marker = 'RUN if [ -n "$SCM_PRETEND_VERSION" ]'
                 flags = config["build_env"]
                 text = text.replace(marker, 'ENV CFLAGS="' + flags["CFLAGS"] + '" CXXFLAGS="' + flags["CXXFLAGS"] + '"\n' + marker, 1)
+                dockerfile.write_text(text, encoding="utf-8", newline="\n")
+            if config.get("post_install_commands"):
+                dockerfile = context / "Dockerfile"
+                text = dockerfile.read_text("utf-8")
+                extra = "\n".join("RUN " + json.dumps(cmd) for cmd in config["post_install_commands"])
+                text = text.replace("RUN python -m pip check", extra + "\nRUN python -m pip check", 1)
                 dockerfile.write_text(text, encoding="utf-8", newline="\n")
             write_json(context / "targets.json", targets)
             tag = "erb-fixed/" + repo.lower() + ":" + fingerprint[:16]

@@ -16,6 +16,9 @@ class InfrastructureError(RuntimeError):
 
 
 def command(args, timeout=60, check=True, **kwargs):
+    # All Docker operations here are noninteractive. Inherit neither a console
+    # nor the controller's piped script input across concurrent Windows clients.
+    kwargs.setdefault("stdin", subprocess.DEVNULL)
     try:
         result = subprocess.run(["docker", *map(str, args)], timeout=timeout, **kwargs)
     except (OSError, subprocess.TimeoutExpired) as e:
