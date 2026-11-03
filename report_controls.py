@@ -69,9 +69,17 @@ def main():
     images = check_manifest(read_json(args.images), "images")
     args.output_dir.mkdir(parents=True, exist_ok=True)
     checked = now()
+    windows = {}
+    for label, rows in [("gold", gold), ("empty", empty)]:
+        starts = [r["started_at"] for r in rows if r.get("started_at")]
+        ends = [r["completed_at"] for r in rows if r.get("completed_at")]
+        windows[label] = {"start": min(starts) if starts else None, "end": max(ends) if ends else None}
+    overlap = (all(w["start"] and w["end"] for w in windows.values())
+               and max(w["start"] for w in windows.values()) < min(w["end"] for w in windows.values()))
     compact = lambda rows: [{k: row.get(k) for k in ["task_id", "repo_name", "fill_type", "status", "exit_code", "duration_seconds",
                            "oom_killed", "timed_out", "candidate_sha256", "infrastructure_error", "runner"]} for row in sorted(rows, key=lambda r: r["task_id"])]
     evidence = dict(created_at=checked, dataset_sha256=DATA_SHA, gold=gs, empty=es,
+                    measurement_windows=windows, controls_overlap=overlap,
                     gold_manifest=gm, empty_manifest=em, images_manifest=images,
                     results={"gold": compact(gold), "empty": compact(empty)},
                     input_sha256={"gold_results": sha256(args.gold / "results.jsonl"),
@@ -81,7 +89,7 @@ def main():
     known_gold_fail = sum(gs["statuses"][s] for s in ["test_fail", "timeout", "oom"])
     verdict = ("Oracle: 100% подтверждено" if all_gold else
                "Oracle: 100% не достигнуто в этой среде" if known_gold_fail else
-               "Oracle: 100% пока не подтверждено — есть инфраструктурные пробелы")
+               "Oracle: 100% пока не подтверждено — проверка неполна")
     overview = [("Эталон (oracle)", gs), ("Пустая вставка", es)]
     markdown = ["# ExecRepoBench: полный oracle и empty контроль", "", verdict, "",
                 f"Дата UTC: {checked}. Данные: {DATA_SHA}.", "",
@@ -123,6 +131,7 @@ def main():
     markdown += ["", "## Метод и границы", "",
                  f"Образы: {ready}/50 готовы. Base: {images['config']['base_image']}.",
                  f"Ограничения: {json.dumps(limits, ensure_ascii=False)}; workers gold={gm['config']['workers']}, empty={em['config']['workers']}.",
+                 f"Запуски контролей перекрывались по времени: {overlap}. Лимиты workers относятся к каждому запуску отдельно.",
                  "Каждый кандидат в свежем Linux-контейнере, сеть отключена, непривилегированный пользователь; точные prefix+middle+suffix.",
                  "Это локальное исполнение контрольных тестов. Модель/GPU/vLLM и серверная генерация не проверялись.",
                  "Полные fingerprints, image IDs, статусы всех задач и сведения об импортах сохранены в evidence.json.",
@@ -132,7 +141,8 @@ def main():
     style = (assets / "editorial.css").read_text("utf-8")
     font = base64.b64encode((assets / "InterVariable-4.1.woff2").read_bytes()).decode()
     style = style.replace("url(InterVariable-4.1.woff2)", "url(data:font/woff2;base64," + font + ")")
-    style += "\npre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font:11px/1.55 Consolas,monospace}details{border-top:1px solid var(--rule);padding:12px 0}summary{cursor:pointer}#repos{min-width:850px}.controls{margin-bottom:16px}"
+    style += "\ncode{overflow-wrap:anywhere;word-break:break-word}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font:11px/1.55 Consolas,monospace}details{border-top:1px solid var(--rule);padding:12px 0}summary{cursor:pointer}#repos{min-width:850px}.controls{margin-bottom:16px}"
+    style += "\n@media(max-width:650px){.metrics{grid-template-columns:1fr;gap:14px}.metric{border-left:0;border-top:1px solid var(--rule);padding:12px 0 0}.metric:first-child{border-top:0;padding-top:0}.metric strong{white-space:nowrap}}"
     summary_rows = []
     for label, group in overview:
         c = group["statuses"]
@@ -155,7 +165,7 @@ def main():
 <script>const input=document.getElementById('repo-filter');const rows=[...document.querySelectorAll('#repos tbody tr')];input.addEventListener('input',()=>{{let count=0;const term=input.value.toLocaleLowerCase();rows.forEach(row=>{{row.hidden=!row.cells[0].textContent.toLocaleLowerCase().includes(term);if(!row.hidden)count++}});document.getElementById('shown').textContent=count+' / 50 проектов'}});</script></body></html>"""
     (args.output_dir / "report.html").write_text(html, encoding="utf-8")
     shutil.copyfile(assets / "INTER-LICENSE.txt", args.output_dir / "INTER-LICENSE.txt")
-    print(verdict)
+    print("Oracle: all reference tasks passed" if all_gold else "Oracle: failed or unverified reference tasks remain")
     print(f"gold {fraction(gs)} / empty {fraction(es)}; reports in {args.output_dir}")
 
 

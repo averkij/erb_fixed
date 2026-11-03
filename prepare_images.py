@@ -21,7 +21,11 @@ def build_repository(repo, tasks, args, base, destination):
               "base_image": base, "targets": targets,
               "build_files": {n: sha256(ROOT / n) for n in ["docker/Dockerfile", "docker/test-requirements.txt", "erb/container_guard.py", "erb/container_runner.py"]}}
     config["scm_pretend_version"] = "0.0.0+erb.archive" if repo == "eip712" else ""
-    config["generated_cython_sources"] = ["msgpack/_cmsgpack.pyx"] if repo == "msgpack-python" else []
+    if repo == "python-sortedcontainers":
+        # Archived pyannote-banyan uses C++03 null-pointer/allocator conventions.
+        # Compile the unchanged dependency with its original language/ABI model.
+        config["build_env"] = {"CFLAGS": "-std=c++03 -D_GLIBCXX_USE_CXX11_ABI=0",
+                               "CXXFLAGS": "-std=c++03 -D_GLIBCXX_USE_CXX11_ABI=0"}
     fingerprint = digest(config)
     saved = destination / "image.json"
     if saved.exists():
@@ -47,6 +51,13 @@ def build_repository(repo, tasks, args, base, destination):
                                  (ROOT / "erb/container_guard.py", "container_guard.py"),
                                  (ROOT / "erb/container_runner.py", "container_runner.py")]:
                 shutil.copyfile(source, context / name)
+            if config.get("build_env"):
+                dockerfile = context / "Dockerfile"
+                text = dockerfile.read_text("utf-8")
+                marker = 'RUN if [ -n "$SCM_PRETEND_VERSION" ]'
+                flags = config["build_env"]
+                text = text.replace(marker, 'ENV CFLAGS="' + flags["CFLAGS"] + '" CXXFLAGS="' + flags["CXXFLAGS"] + '"\n' + marker, 1)
+                dockerfile.write_text(text, encoding="utf-8", newline="\n")
             write_json(context / "targets.json", targets)
             tag = "erb-fixed/" + repo.lower() + ":" + fingerprint[:16]
             with (destination / "build.log").open("wb") as log:

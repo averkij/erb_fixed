@@ -131,6 +131,9 @@ install -e .` из `/repo` и явные [зависимости тестов](d
 и не утверждает исходную release-версию. Для msgpack недостающий C-файл
 генерируется из исходного `.pyx` закреплённым в архиве Cython. Конфликт
 flake8/pycodestyle предотвращён совместимыми pins; тесты не переписываются.
+У `python-sortedcontainers` архивная C++-зависимость `pyannote-banyan`
+компилируется с `-std=c++03 -D_GLIBCXX_USE_CXX11_ABI=0`; флаги записываются
+в `image.json`. Исходники зависимости не исправляются.
 
 Выход: `images/manifest.json`, по проекту `build.log`, `image.json`,
 `packages.txt`, `imports.json`; сохранены base digest, image ID, версии пакетов,

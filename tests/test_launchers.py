@@ -17,6 +17,17 @@ ARGS = ["--data", "data with spaces/input.jsonl", "--run-dir", "run with spaces"
 
 
 class LauncherTests(unittest.TestCase):
+    @unittest.skipUnless(os.name == "nt", "Windows command shim required")
+    def test_powershell_native_stderr_and_exit(self):
+        with tempfile.TemporaryDirectory(prefix="erb native interpreter spaces ") as d:
+            root = Path(d)
+            (root / "capture.py").write_text("import json,pathlib,sys\npathlib.Path(__file__).with_name('args.json').write_text(json.dumps(sys.argv[1:]))\nprint('diagnostic on stderr',file=sys.stderr)\nsys.exit(37)\n", encoding="utf-8")
+            stub = root / "fake python.cmd"
+            stub.write_text('@echo off\n"' + sys.executable + '" "%~dp0capture.py" %*\nexit /b %errorlevel%\n', encoding="utf-8")
+            result = subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ROOT / "scripts/evaluate_local.ps1"), "--python", str(stub), *ARGS], capture_output=True)
+            self.assertEqual(result.returncode, 37, result.stderr)
+            self.assertEqual(json.loads((root / "args.json").read_text("utf-8"))[1:], ARGS)
+
     @unittest.skipUnless(os.name == "nt", "Windows PowerShell required")
     def test_powershell_arguments_and_exit(self):
         with tempfile.TemporaryDirectory(prefix="erb launcher spaces ") as d:
