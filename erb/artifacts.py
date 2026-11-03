@@ -29,7 +29,11 @@ def read_attempts(path, run_manifest, require_complete=False):
                         or not isinstance(row.get("prompt_token_ids"), list)
                         or any(type(t) is not int or t < 0 for t in row["prompt_token_ids"])
                         or row.get("finish_reason") not in {"stop", "length"}
-                        or not isinstance(row.get("usage"), dict)):
+                        or not isinstance(row.get("usage"), dict)
+                        or not isinstance(row.get("generated_token_ids"), list)
+                        or any(type(t) is not int or t < 0 for t in row["generated_token_ids"])
+                        or row["usage"].get("prompt_tokens") != len(row["prompt_token_ids"])
+                        or row["usage"].get("completion_tokens") != len(row["generated_token_ids"])):
                     raise ValueError(f"Incomplete generation metadata: {i}")
             results[i] = row
     if require_complete and set(results) != set(expected):

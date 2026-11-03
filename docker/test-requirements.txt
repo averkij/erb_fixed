@@ -1,0 +1,10 @@
+# Explicit upstream test dependency set, pinned for Python 3.9.
+pytest==8.2.2
+pytest-cov==5.0.0
+pytest-benchmark==4.0.0
+coincidence==0.6.6
+cssutils==2.11.1
+docutils==0.21.2
+openpyxl==3.1.5
+hypothesis==6.104.2
+pycodestyle==2.12.0

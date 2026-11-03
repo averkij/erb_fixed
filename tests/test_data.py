@@ -58,7 +58,7 @@ class DataTests(unittest.TestCase):
             out = Path(d) / "out"
             extract_repository(path, "sample", out)
             self.assertEqual(sorted(p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file()),
-                             ["evaluate_repo.py", "pkg/a.py"])
+                             ["build/lib/pkg/a.py", "evaluate_repo.py", "pkg/a.py"])
 
     def test_pilot(self):
         tasks = clean_rows([dict(sample(), fill_type=c) for c in CATEGORIES for _ in range(2)])

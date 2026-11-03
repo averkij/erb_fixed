@@ -105,8 +105,7 @@ def run_lock(directory):
 
 
 def code_identity():
-    files = sorted(p for p in ROOT.rglob("*.py")
-                   if p.is_file() and (p.parent == ROOT or p.parts[len(ROOT.parts)] in {"erb", "tests"}))
+    files = sorted([*ROOT.glob("*.py"), *(ROOT / "erb").rglob("*.py"), *(ROOT / "tests").rglob("*.py")])
     files += [ROOT / "data.lock.json"]
     source_hash = digest({p.relative_to(ROOT).as_posix(): sha256(p) for p in files})
     try:

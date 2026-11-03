@@ -128,7 +128,7 @@ def extract_repository(archive_path, repo, destination):
             if len(path.parts) < 3 or path.parts[1] != repo:
                 continue
             rel = path.parts[2:]
-            if any(p in {"__pycache__", ".pytest_cache", ".git", "build", "dist"} for p in rel) or rel[-1].endswith((".pyc", ".pyo")):
+            if "__pycache__" in rel or rel[-1].endswith((".pyc", ".pyo")):
                 continue
             dest = destination.joinpath(*rel)
             if info.is_dir():

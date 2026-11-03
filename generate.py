@@ -131,16 +131,21 @@ def main():
         if not remaining:
             print("All selected attempts are already durable")
             return
-        engine = AsyncLLMEngine.from_engine_args(AsyncEngineArgs(
-            model=args.model, revision=revision, tokenizer=tokenizer_name, tokenizer_revision=tokenizer_revision,
-            dtype=args.dtype, tensor_parallel_size=args.tensor_parallel_size, seed=args.seed,
-            max_model_len=args.window, max_num_seqs=args.batch_size,
-            gpu_memory_utilization=args.gpu_memory_utilization, trust_remote_code=False))
         sampling = SamplingParams(temperature=args.temperature, top_p=1.0, n=1, seed=args.seed,
                                   max_tokens=args.max_new_tokens, stop_token_ids=settings["stop_token_ids"],
                                   skip_special_tokens=False, include_stop_str_in_output=False)
-        with (args.run_dir / "generations.jsonl").open("a", encoding="utf-8", newline="\n") as out:
-            asyncio.run(generate_batches(engine, sampling, remaining, tokenizer, args, out, run["fingerprint"]))
+        async def session():
+            engine = AsyncLLMEngine.from_engine_args(AsyncEngineArgs(
+                model=args.model, revision=revision, tokenizer=tokenizer_name, tokenizer_revision=tokenizer_revision,
+                dtype=args.dtype, tensor_parallel_size=args.tensor_parallel_size, seed=args.seed,
+                max_model_len=args.window, max_num_seqs=args.batch_size,
+                gpu_memory_utilization=args.gpu_memory_utilization, trust_remote_code=False))
+            try:
+                with (args.run_dir / "generations.jsonl").open("a", encoding="utf-8", newline="\n") as out:
+                    await generate_batches(engine, sampling, remaining, tokenizer, args, out, run["fingerprint"])
+            finally:
+                engine.shutdown()
+        asyncio.run(session())
 
 
 if __name__ == "__main__":
